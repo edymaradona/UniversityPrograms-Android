@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UniversityPrograms</string>
+    <string name="title_section1">UpComing \n Events</string>
+    <string name="title_section2">About UP</string>
+    <string name="title_section3">My UP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_whatwedo">What We Do</string>
+    <string name="text_whatwedo">The vision of University Programs is to be the central
+        location for all on-campus programming. We will share our resources with other
+        campus departments, student organizations and community partners to assist them
+        in the planning, promotion and implementation of their events. In addition, we
+        will engage students through programs to play a more active role in their experience
+        and education at the Capstone.</string>
+    <string name="title_whoweare">Who We Are</string>
+    <string name="text_whoweare">University Programs is the student-led, student-driven board,
+        which aims to provide University of Alabama students with a variety of events that
+        enhance the overall student experience. We are committed to supporting the overall
+        academic, research and service mission of The University of Alabama and the Ferguson
+        Center Student Union by providing quality collaborative programming that promotes
+        lifelong learning and allows all students to find a place of involvement and importance.</string>
+    <string name="title_contactus">Who We Are</string>
+    <string name="text_contactus">700 University Boulevard \n
+        Capstone Medical Building - Room 236 \n
+        Box 870292 \n
+        Tuscaloosa, AL 35487</string>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkred">#7f0000</color>
+    <color name="lightgrey">#d3d3d3</color>
+    <color name="darkgrey">#696969</color>
+
+</resources>
