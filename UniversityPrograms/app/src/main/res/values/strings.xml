@@ -21,11 +21,36 @@
         academic, research and service mission of The University of Alabama and the Ferguson
         Center Student Union by providing quality collaborative programming that promotes
         lifelong learning and allows all students to find a place of involvement and importance.</string>
+
+    <string name="dir_name">LaToya Scott</string>
+    <string name="dir_info">Director\nPhone: (205) 348-9958\nFax: (205) 348-3247\nEmail: scott060@sa.ua.edu</string>
+    <string name="prog_assist_name">Kimberly Jones</string>
+    <string name="prog_assist_info">Program Assistant\nPhone: (205) 348-7525\nFax: (205)348-8251\nEmail: kmjones13@sa.ua.edu</string>
+    <string name="grad_assist1_name">Averie Armstead</string>
+    <string name="grad_assist1_info">Home: Birmingham, AL\nMajor: Sports Management\nYear: Graduate\nPosition: Graduate Assistant\n
+    My Job: I have been with University Programs since September 2012 working as an event programmer and communications specialist.
+        Upon receiving my Bachelor\'s in public relations from the University of Alabama in August 2013, I am continuing working with
+        UP as a graduate assistant. Currently, I oversee the event programmers and provide them with advice and support. It is my
+        goal to ensure that all programs are fully developed and implemented so we can provide the Capstone with exceptional programs
+        year round.\nFun Fact: I went bungee jumping over spring break.</string>
+    <string name="grad_assist2_name">Jennifer McCollum</string>
+    <string name="grad_assist2_info">Home: Millbrook, AL\nMajor: Public Administration\nYear: Graduate\nPosition: Graduate Assistant\n
+    My Job: I co-teach the RHM Practicum course. I am responsible for the overall execution of their events as well as overseeing the
+        marketing strategies that are put forth. This position allows me the opportunity to lead students within the University of
+        Alabama while also learning the fundamental skills needed for my future career. I also assist in other areas within our office
+        when needed. I consider my position to be challenging; however, I truly enjoy all of the challenges I face everyday.
+        University Programs is a family, and I am grateful to each person that makes up our office.\nFun Fact: I have a gorgeous puppy
+        named after a Starbuck coffee (Mocha Latte).</string>
+    <string name="grad_assist3_name">James Shetler</string>
+    <string name="grad_assist3_info">Home: Peoria, IL\nMajor: Advertising/Public Relations\nYear: Graduate\nPosition: Graduate Assistant\n
+    My Job: I teach the students of the APR 381 Practicum. I advise them in every aspect of the practicum course. Under my supervision,
+        the APR 381 students work closely with the RHM 385 practicum students to gain practical work experience by planning events and
+        implementing promotional efforts. With my guidance, students are able to explore their chosen major, while also helping them clarify
+        and evaluate academic and career goals.\n
+        Fun Fact: I broke both of my wrists during my senior year of high school while playing a game of dodgeball.</string>
+
     <string name="title_contactus">Who We Are</string>
-    <string name="text_contactus">700 University Boulevard \n
-        Capstone Medical Building - Room 236 \n
-        Box 870292 \n
-        Tuscaloosa, AL 35487</string>
+    <string name="text_contactus">700 University Boulevard\nCapstone Medical Building - Room 236\nBox 870292\nTuscaloosa, AL 35487</string>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="darkred">#7f0000</color>
