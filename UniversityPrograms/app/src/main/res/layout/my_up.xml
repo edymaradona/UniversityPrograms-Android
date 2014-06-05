@@ -25,7 +25,7 @@
         android:layout_height="20dp"
         android:text="Email address (Optional)"
         android:textColor="@color/white"
-        android:id="@+id/textView2"/>
+        android:id="@+id/tvMemberName"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="30dp"

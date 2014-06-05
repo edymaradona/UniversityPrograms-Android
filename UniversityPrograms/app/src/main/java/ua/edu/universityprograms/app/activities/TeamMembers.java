@@ -20,7 +20,7 @@ import ua.edu.universityprograms.app.R;
  */
 public class TeamMembers extends Activity {
     private String categories[] = {"Director", "Graduate Assistent", "Event Programmer",
-            "Communication Team", "Office Assistant", "Intern"};
+            "Communication Team", "Intern"};
     @InjectView(R.id.lvAbout)
     ListView lvMembers;
 
@@ -49,16 +49,13 @@ public class TeamMembers extends Activity {
                         intent = new Intent(TeamMembers.this, GraduateAssistant.class);
                         break;
                     case 2:
-                        intent = new Intent(TeamMembers.this, TeamMembers.class);
+                        intent = new Intent(TeamMembers.this, EventProgrammer.class);
                         break;
                     case 3:
-                        intent = new Intent(TeamMembers.this, ContactUs.class);
+                        intent = new Intent(TeamMembers.this, CommunicationTeam.class);
                         break;
                     case 4:
-                        intent = new Intent(TeamMembers.this, TeamMembers.class);
-                        break;
-                    case 5:
-                        intent = new Intent(TeamMembers.this, ContactUs.class);
+                        intent = new Intent(TeamMembers.this, Intern.class);
                         break;
                 }
                 startActivity(intent);

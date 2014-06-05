@@ -19,5 +19,5 @@
         android:layout_height="wrap_content"
         android:background="@drawable/alogo"
         android:layout_gravity="center"
-        android:id="@+id/imageView" />
+        android:id="@+id/ivMemberProfile" />
 </LinearLayout>

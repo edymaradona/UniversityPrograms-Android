@@ -16,7 +16,6 @@ public class Members implements Parcelable {
         this.name = name;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -36,6 +35,7 @@ public class Members implements Parcelable {
     }
 
     public static Parcelable.Creator<Members> CREATOR = new Parcelable.Creator<Members>() {
+
         public Members createFromParcel(Parcel source) {
             return new Members(source);
         }

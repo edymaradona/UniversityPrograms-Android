@@ -17,9 +17,9 @@ import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.models.Members;
 
 /**
- * Created by vcaciuc on 6/4/2014.
+ * Created by vcaciuc on 6/5/2014.
  */
-public class Director extends Activity implements AdapterView.OnItemClickListener{
+public class CommunicationTeam extends Activity implements AdapterView.OnItemClickListener{
 
     @InjectView(R.id.gvAssist)
     GridView assistants;
@@ -37,15 +37,16 @@ public class Director extends Activity implements AdapterView.OnItemClickListene
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_2.jpg", res.getString(R.string.dir_name), res.getString(R.string.dir_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_7.jpg", res.getString(R.string.prog_assist_name), res.getString(R.string.prog_assist_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_16.jpg", res.getString(R.string.communication1_name), res.getString(R.string.communication1_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_11.jpg", res.getString(R.string.communication2_name), res.getString(R.string.communication2_info)));
 
         return list;
     }
 
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(Director.this, Member.class);
+        Intent intent = new Intent(CommunicationTeam.this, Member.class);
         intent.putExtra("memb",list.get(i));
         startActivity(intent);
     }

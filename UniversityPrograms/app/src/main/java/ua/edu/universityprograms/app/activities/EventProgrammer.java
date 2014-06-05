@@ -17,10 +17,9 @@ import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.models.Members;
 
 /**
- * Created by vcaciuc on 6/4/2014.
+ * Created by vcaciuc on 6/5/2014.
  */
-public class Director extends Activity implements AdapterView.OnItemClickListener{
-
+public class EventProgrammer  extends Activity implements AdapterView.OnItemClickListener{
     @InjectView(R.id.gvAssist)
     GridView assistants;
 
@@ -37,15 +36,18 @@ public class Director extends Activity implements AdapterView.OnItemClickListene
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_2.jpg", res.getString(R.string.dir_name), res.getString(R.string.dir_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_7.jpg", res.getString(R.string.prog_assist_name), res.getString(R.string.prog_assist_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_14.jpg", res.getString(R.string.event_prog1_name), res.getString(R.string.event_prog1_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_6.jpg", res.getString(R.string.event_prog2_name), res.getString(R.string.event_prog2_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew.jpg", res.getString(R.string.event_prog3_name), res.getString(R.string.event_prog3_info)));
+        list.add(new Members("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQCH54gYMjvoXek0ju1q9xlFB635cIdQTNHXcxw_vh6HHEuBVR4UPUbszyl", res.getString(R.string.event_prog4_name), res.getString(R.string.event_prog4_info)));
 
         return list;
     }
 
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(Director.this, Member.class);
+        Intent intent = new Intent(EventProgrammer.this, Member.class);
         intent.putExtra("memb",list.get(i));
         startActivity(intent);
     }

@@ -26,56 +26,55 @@ import ua.edu.universityprograms.app.models.Members;
 /**
  * Created by vcaciuc on 6/4/2014.
  */
-public class MembersAdapter
-    extends ArrayAdapter<Members> {
+public class MembersAdapter extends ArrayAdapter<Members> {
     Context mcontext;
     private Display display;
     private Point size;
     public static int width;
     private Drawable error;
 
+    public MembersAdapter(Context context, ArrayList<Members> members) {
+        super(context, R.layout.grid_cell_member, members);
+        mcontext = context;
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        display = wm.getDefaultDisplay();
+        size = new Point();
+        display.getSize(size);
+        width = size.x;
+        Drawable dr = mcontext.getResources().getDrawable(R.drawable.alogo1);
+        Bitmap bit = ((BitmapDrawable) dr).getBitmap();
+        error = new BitmapDrawable(mcontext.getResources(), Bitmap.createScaledBitmap(bit, width / 2, width / 2, true));
+    }
 
-        public MembersAdapter(Context context, ArrayList<Members> members) {
-            super(context, R.layout.grid_cell_member, members);
-            mcontext = context;
-            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-            display = wm.getDefaultDisplay();
-            size = new Point();
-            display.getSize(size);
-            width = size.x;
-            Drawable dr = mcontext.getResources().getDrawable( R.drawable.alogo1 );
-            Bitmap bit = ((BitmapDrawable)dr).getBitmap();
-            error = new BitmapDrawable(mcontext.getResources(), Bitmap.createScaledBitmap(bit, width / 2, width / 2, true));
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Members member = getItem(position);
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.grid_cell_member, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
+        holder.tvName.setText(member.name);
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            Members member = getItem(position);
-            ViewHolder holder;
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.grid_cell_member, parent, false);
-                holder = new ViewHolder(convertView);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            holder.tvName.setText(member.name);
+        Picasso.with(mcontext).load(member.url).error(error).resize(width / 2, width / 2).centerCrop().into(holder.ivProfile);
+        return convertView;
+    }
 
-            Picasso.with(mcontext).load(member.url).error(error).resize(width/2, width/2).centerCrop().into(holder.ivProfile);
-            return convertView;
-        }
-        static class ViewHolder {
+    static class ViewHolder {
 
-            @InjectView(R.id.tvCellName)
-            TextView tvName;
-            @InjectView(R.id.ivProfile)
-            ImageView ivProfile;
+        @InjectView(R.id.tvCellName)
+        TextView tvName;
+        @InjectView(R.id.ivProfile)
+        ImageView ivProfile;
 
-            ViewHolder(View view) {
-                ButterKnife.inject(this, view);
-                ivProfile.getLayoutParams().height = width/2;
-                ivProfile.getLayoutParams().width = width/2;
-            }
+        ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+            ivProfile.getLayoutParams().height = width / 2;
+            ivProfile.getLayoutParams().width = width / 2;
         }
     }
+}
 

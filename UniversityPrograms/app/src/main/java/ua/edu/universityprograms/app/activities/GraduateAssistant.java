@@ -1,6 +1,7 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -20,32 +21,34 @@ import ua.edu.universityprograms.app.models.Members;
  */
 public class GraduateAssistant extends Activity implements AdapterView.OnItemClickListener{
 
-    @InjectView(R.id.gvAssist)
-    GridView assistants;
+        @InjectView(R.id.gvAssist)
+        GridView assistants;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.grad_assist);
-        ButterKnife.inject(this);
-        MembersAdapter adapter = new MembersAdapter(this, getAssistants());
-        assistants.setAdapter(adapter);
-        assistants.setOnItemClickListener(this);
-    }
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.grad_assist);
+            ButterKnife.inject(this);
+            MembersAdapter adapter = new MembersAdapter(this, getAssistants());
+            assistants.setAdapter(adapter);
+            assistants.setOnItemClickListener(this);
+        }
+        ArrayList<Members> list;
+        public ArrayList<Members> getAssistants(){
+            list = new ArrayList<Members>();
+            Resources res = getResources();
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_15.jpg", res.getString(R.string.grad_assist1_name), res.getString(R.string.grad_assist1_info)));
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_9.jpg", res.getString(R.string.grad_assist2_name), res.getString(R.string.grad_assist2_info)));
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_13.jpg", res.getString(R.string.grad_assist3_name), res.getString(R.string.grad_assist3_info)));
 
-    public ArrayList<Members> getAssistants(){
-        ArrayList<Members> list = new ArrayList<Members>();
-        Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_15.jpg", res.getString(R.string.grad_assist1_name), res.getString(R.string.grad_assist1_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_9.jpg", res.getString(R.string.grad_assist2_name), res.getString(R.string.grad_assist2_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_13.jpg", res.getString(R.string.grad_assist3_name), res.getString(R.string.grad_assist3_info)));
-
-        return list;
-    }
+            return list;
+        }
 
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Intent intent = new Intent(GraduateAssistant.this, Member.class);
+            intent.putExtra("memb",list.get(i));
+            startActivity(intent);
+        }
 }
