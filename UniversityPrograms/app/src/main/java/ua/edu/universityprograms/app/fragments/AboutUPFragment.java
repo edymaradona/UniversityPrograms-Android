@@ -47,9 +47,7 @@ public class AboutUPFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Fullscreen
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         View rootView = inflater.inflate(R.layout.about_up, container, false);
         ButterKnife.inject(this, rootView);
         return rootView;

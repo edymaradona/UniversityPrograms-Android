@@ -101,5 +101,6 @@
     <color name="darkgrey">#696969</color>
 
     <string name="title_activity_member">Member</string>
+    <string name="title_activity_event">Event</string>
 
 </resources>

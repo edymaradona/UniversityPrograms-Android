@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Event">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:id="@+id/ivEventPic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:padding="4sp"
+        android:id="@+id/tvEventName"
+        android:layout_alignBottom="@+id/ivEventPic"
+        android:layout_alignLeft="@+id/ivEventPic"
+        android:layout_alignStart="@+id/ivEventPic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:padding="4sp"
+        android:id="@+id/tvTimeUntil"
+        android:layout_alignBottom="@+id/ivEventPic"
+        android:layout_alignRight="@+id/ivEventPic"
+        android:layout_alignEnd="@+id/ivEventPic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4sp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvLocation"
+        android:layout_below="@+id/ivEventPic"
+        android:layout_alignLeft="@+id/ivEventPic"
+        android:layout_alignStart="@+id/ivEventPic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4sp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvDescription"
+        android:layout_below="@+id/tvLocation"
+        android:layout_alignLeft="@+id/tvLocation"
+        android:layout_alignStart="@+id/tvLocation" />
+</RelativeLayout>

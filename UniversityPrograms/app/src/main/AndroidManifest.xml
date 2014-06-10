@@ -68,6 +68,10 @@
             android:name=".activities.Member"
             android:label="@string/title_activity_member" >
         </activity>
+        <activity
+            android:name=".activities.Event"
+            android:label="@string/title_activity_event" >
+        </activity>
     </application>
 
 </manifest>

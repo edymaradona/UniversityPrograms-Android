@@ -28,3 +28,4 @@ dependencies {
 /////////////////////
 dependencies{compile fileTree(dir: '../Gears/Jars/ButterKnife/5.1.0', include: ['*.jar'])}
 dependencies{compile fileTree(dir: '../Gears/Jars/Picasso/2.2.0', include: ['*.jar'])}
+dependencies{compile fileTree(dir: '../Gears/Jars/Gson/2.2.4', include: ['*.jar'])}

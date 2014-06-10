@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_API">https://mobileweb.caps.ua.edu/UP/</string>
+    <string name="get_events">api/Event/events?cwid=</string>
+    <string name="get_event">api/Event/getEvent?eventId=</string>
+    <string name="token_cwid">cwid=</string>
+
+
+</resources>
