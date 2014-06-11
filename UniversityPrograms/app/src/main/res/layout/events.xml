@@ -13,7 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#5000"
-        android:padding="4dp"
+        android:paddingRight="4dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:layout_alignBottom="@+id/ivEventPic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">

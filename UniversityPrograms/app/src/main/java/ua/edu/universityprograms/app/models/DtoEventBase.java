@@ -11,9 +11,7 @@ public class DtoEventBase implements Parcelable {
     public String eventName, eventDescription, startDate, endDate, imageUrl;
     public int eventId, numberAttending;
     public Boolean isRegistered;
-
     public DtoEventBase(){
-
     }
 
     public DtoEventBase(String eventName, String eventDescription, String startDate, String endDate, String imageUrl, int eventId, int numberAttending, Boolean isRegistered) {

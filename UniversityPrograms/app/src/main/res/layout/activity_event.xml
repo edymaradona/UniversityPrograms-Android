@@ -8,31 +8,46 @@
         android:layout_width="match_parent"
         android:layout_height="300sp"
         android:id="@+id/ivEventPic"
+        android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:padding="4sp"
-        android:id="@+id/tvEventName"
+        android:background="#5000"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:gravity="center"
         android:layout_alignBottom="@+id/ivEventPic"
-        android:layout_alignLeft="@+id/ivEventPic"
-        android:layout_alignStart="@+id/ivEventPic" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:text="Medium Text"
+            android:gravity="center"
+            android:id="@+id/tvEventName"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:gravity="right"
+            android:textColor="@color/white"
+            android:id="@+id/tvTimeUntil"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:padding="4sp"
-        android:id="@+id/tvTimeUntil"
-        android:layout_alignBottom="@+id/ivEventPic"
-        android:layout_alignRight="@+id/ivEventPic"
-        android:layout_alignEnd="@+id/ivEventPic" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

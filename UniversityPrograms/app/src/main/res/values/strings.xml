@@ -102,5 +102,6 @@
 
     <string name="title_activity_member">Member</string>
     <string name="title_activity_event">Event</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>

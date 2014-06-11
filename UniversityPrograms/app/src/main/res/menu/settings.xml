@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.Settings" >
+    <item android:id="@+id/action_save"
+        android:title="Save"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/ic_menu_save"
+        android:showAsAction="always" />
+</menu>

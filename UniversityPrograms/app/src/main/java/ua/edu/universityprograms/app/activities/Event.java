@@ -13,6 +13,10 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.Asyncs.GetEventAsync;
@@ -30,8 +34,8 @@ public class Event extends Activity {
     TextView location;
     @InjectView(R.id.tvDescription)
     TextView description;
-
-
+    @InjectView(R.id.ivEventPic)
+    ImageView pic;
 
     Context mcontext;
 
@@ -47,8 +51,11 @@ public class Event extends Activity {
             protected void onPostExecute(DtoEvent dtoEvent) {
                 super.onPostExecute(dtoEvent);
                 name.setText(dtoEvent.eventName);
-                until.setText(dtoEvent.startDate);
-                Picasso.with(mcontext).load(dtoEvent.imageUrl);
+                DateTime dt = new DateTime(dtoEvent.startDate);
+                DateTimeFormatter fmt = DateTimeFormat.forPattern("MMM d, yy" + "\n" + "'at'" + " h:mm aa");
+                String sTime = fmt.print(dt);
+                until.setText(sTime);
+                Picasso.with(mcontext).load(dtoEvent.imageUrl).into(pic);
                 description.setText(dtoEvent.eventDescription);
                 if(dtoEvent.location != null){
                     String temp = setLocationString(dtoEvent.location);
