@@ -37,7 +37,7 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_18.jpg", res.getString(R.string.intern1_name), res.getString(R.string.intern1_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_18.jpg", res.getString(R.string.intern1_name), res.getString(R.string.intern1_info), res.getString(R.string.intern1_about)));
 
         return list;
     }

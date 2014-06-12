@@ -70,6 +70,7 @@ public class MembersAdapter extends ArrayAdapter<Members> {
         @InjectView(R.id.ivProfile)
         ImageView ivProfile;
 
+
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
             ivProfile.getLayoutParams().height = width / 2;

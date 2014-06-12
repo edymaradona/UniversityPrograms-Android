@@ -23,74 +23,72 @@
         lifelong learning and allows all students to find a place of involvement and importance.</string>
     <string name="dir_name">LaToya Scott</string>
     <string name="dir_info">Director\nPhone: (205) 348-9958\nFax: (205) 348-3247\nEmail: scott060@sa.ua.edu</string>
+    <string name="dir_about"> </string>
     <string name="prog_assist_name">Kimberly Jones</string>
+    <string name="prog_assist_about"></string>
     <string name="prog_assist_info">Program Assistant\nPhone: (205) 348-7525\nFax: (205)348-8251\nEmail: kmjones13@sa.ua.edu</string>
+
     <string name="grad_assist1_name">Averie Armstead</string>
-    <string name="grad_assist1_info">Home: Birmingham, AL\nMajor: Sports Management\nYear: Graduate\nPosition: Graduate Assistant\n\n
-    My Job: I have been with University Programs since September 2012 working as an event programmer and communications specialist.
-        Upon receiving my Bachelor\'s in public relations from the University of Alabama in August 2013, I am continuing working with
-        UP as a graduate assistant. Currently, I oversee the event programmers and provide them with advice and support. It is my
-        goal to ensure that all programs are fully developed and implemented so we can provide the Capstone with exceptional programs
-        year round.\nFun Fact: I went bungee jumping over spring break.</string>
+    <string name="grad_assist1_info">Home: Birmingham, AL\nMajor: Sports Management\nYear: Graduate\nPosition: Graduate Assistant\n\n</string>
+    <string name="grad_assist1_about">My Job: I have been with University Programs since September 2012 working as an event programmer
+        and communications specialist. Upon receiving my Bachelor\'s in public relations from the University of Alabama in August 2013,
+        I am continuing working with UP as a graduate assistant. Currently, I oversee the event programmers and provide them with advice
+        and support. It is my goal to ensure that all programs are fully developed and implemented so we can provide the Capstone with
+        exceptional programs year round.\n\nFun Fact: I went bungee jumping over spring break.</string>
     <string name="grad_assist2_name">Jennifer McCollum</string>
-    <string name="grad_assist2_info">Home: Millbrook, AL\nMajor: Public Administration\nYear: Graduate\nPosition: Graduate Assistant\n\n
-    My Job: I co-teach the RHM Practicum course. I am responsible for the overall execution of their events as well as overseeing the
+    <string name="grad_assist2_info">Home: Millbrook, AL\nMajor: Public Administration\nYear: Graduate\nPosition: Graduate Assistant\n\n</string>
+    <string name="grad_assist2_about">My Job: I co-teach the RHM Practicum course. I am responsible for the overall execution of their events as well as overseeing the
         marketing strategies that are put forth. This position allows me the opportunity to lead students within the University of
         Alabama while also learning the fundamental skills needed for my future career. I also assist in other areas within our office
         when needed. I consider my position to be challenging; however, I truly enjoy all of the challenges I face everyday.
-        University Programs is a family, and I am grateful to each person that makes up our office.\nFun Fact: I have a gorgeous puppy
+        University Programs is a family, and I am grateful to each person that makes up our office.\n\nFun Fact: I have a gorgeous puppy
         named after a Starbuck coffee (Mocha Latte).</string>
     <string name="grad_assist3_name">James Shetler</string>
-    <string name="grad_assist3_info">Home: Peoria, IL\nMajor: Advertising/Public Relations\nYear: Graduate\nPosition: Graduate Assistant\n\n
-    My Job: I teach the students of the APR 381 Practicum. I advise them in every aspect of the practicum course. Under my supervision,
+    <string name="grad_assist3_info">Home: Peoria, IL\nMajor: Advertising/Public Relations\nYear: Graduate\nPosition: Graduate Assistant\n\n</string>
+    <string name="grad_assist3_about">My Job: I teach the students of the APR 381 Practicum. I advise them in every aspect of the practicum course. Under my supervision,
         the APR 381 students work closely with the RHM 385 practicum students to gain practical work experience by planning events and
         implementing promotional efforts. With my guidance, students are able to explore their chosen major, while also helping them clarify
-        and evaluate academic and career goals.\n
-        Fun Fact: I broke both of my wrists during my senior year of high school while playing a game of dodgeball.</string>
+        and evaluate academic and career goals.\n\nFun Fact: I broke both of my wrists during my senior year of high school while playing a game of dodgeball.</string>
     <string name="event_prog1_name">Brittney Lee</string>
-    <string name="event_prog1_info">Home: New Orleans, LA\nMajor: Public Relations\nMinor: Civic Engagement and Leadership\nYear: Senior\n
-        Position: Event Programmer\n\nMy Job: I love being involved in student life, and I can do accomplish this by providing the campus with
+    <string name="event_prog1_info">Home: New Orleans, LA\nMajor: Public Relations\nMinor: Civic Engagement and Leadership\nYear: Senior\nPosition: Event Programmer\n\n</string>
+    <string name="event_prog1_about">My Job: I love being involved in student life, and I can do accomplish this by providing the campus with
         student interests. Working at UP gives a fantastic opportunity for me to program events for students. I have my hand in all aspects
-        of UP from movie series to logistics.\nFun Fact: I\'m a member of the Theta Sigma Chapter of Alpha Kappa Alpha Sorority Inc. and a
+        of UP from movie series to logistics.\n\nFun Fact: I\'m a member of the Theta Sigma Chapter of Alpha Kappa Alpha Sorority Inc. and a
         cadet in Air Force ROTC.</string>
     <string name="event_prog2_name">Taylor Johnson</string>
-    <string name="event_prog2_info">Home: Atlanta, GA\nMajor: American Studies/ Communication studies\nMinor: General Business\nYear: Junior\n
-        Position: Event Programmer\n\nMy Job: I currently serve as an event programmer with University Programs. Here I have the opportunity to
+    <string name="event_prog2_info">Home: Atlanta, GA\nMajor: American Studies/ Communication studies\nMinor: General Business\nYear: Junior\nPosition: Event Programmer\n\n</string>
+    <string name="event_prog2_about">My Job: I currently serve as an event programmer with University Programs. Here I have the opportunity to
         logistically plan and implement events that specifically cater to the student body\'s needs such as the On The Town series. I thoroughly
         enjoy working in a team environment that challenges my creative and critical thinking skills while also gaining valuable professional
-        experience and networking opportunities.\nFun Fact: I am obsessed with Beyonce.</string>
+        experience and networking opportunities.\n\nFun Fact: I am obsessed with Beyonce.</string>
     <string name="event_prog3_name">Runqiu (Candice) Ji</string>
-    <string name="event_prog3_info">Home: Hangzhou, China\nMajor: Marketing/ Advertising\nYear: Junior\n
-        Position: Event Programmer\n\nMy Job: I have been with University Programs since January 2013 and now work as the director of International
+    <string name="event_prog3_info">Home: Hangzhou, China\nMajor: Marketing/ Advertising\nYear: Junior\nPosition: Event Programmer\n\n</string>
+    <string name="event_prog3_about">My Job: I have been with University Programs since January 2013 and now work as the director of International
         Expressions series events. International Expressions is a monthly event that highlights diverse cultures around the world to promote
         cultural exchange and inclusiveness on campus. These special events are created to give students the opportunity to learn about the
         traditions, customs, arts and values of different countries. This is done through interactive activities and performances such as food
         tasting, traditional dance, craft-making etc. For the international community, International Expressions is important because it provides
         a platform for various cultures, on UA campus and in the Tuscaloosa community, to be represented and shared with other students, faculty
-        and local families.\nFun Fact: Candice is not my real name.</string>
+        and local families.\n\nFun Fact: Candice is not my real name.</string>
     <string name="event_prog4_name">Bonnika Ashley</string>
-    <string name="event_prog4_info">Home: Austin, TX\nMajor: Industrial Psychology\nMinor: Computer Science\nYear: Senior\n
-        Position: Event Programmer\n\nMy Job: while I have only been with the University Programs team for a short time, I have learned a great
+    <string name="event_prog4_info">Home: Austin, TX\nMajor: Industrial Psychology\nMinor: Computer Science\nYear: Senior\nPosition: Event Programmer\n\n</string>
+    <string name="event_prog4_about">My Job: while I have only been with the University Programs team for a short time, I have learned a great
         deal about my campus, colleagues and community. As an event programmer I have been presented with opportunities to exercise my leadership
         skills as well as showcase my passion for people. During my time here at the Capstone, it is my goal to leave a legacy and University
-        Programs is the place to do just that.\nFun Fact: I am one of six girls.</string>
+        Programs is the place to do just that.\n\nFun Fact: I am one of six girls.</string>
     <string name="communication1_name">Reginald (Reggie) Allison II</string>
-    <string name="communication1_info">Home: Chicago, IL\nMajor: Telecommunication and Film\nYear: Graduate\n
-        Position: Intern\n\nMy Job: Reginald serves as an Intern at University Programs, as well as a Graduate Teaching Assistant and Research
-        Assistant for the Telecommunication and Film department. As an Intern, Reginald has worked in a team environment to plan, organize, and
-        execute a variety of events. Reginald states, "UP has provided me with a great opportunity to further obtain working knowledge and real
-        world experience in, among others things, project management, event coordination, logistics, marketing, and public relations."\n
-        Fun Fact: In addition to being a fan of Bama athletics, Reginald is also a fan of several professional sporting teams, including the
-        Chicago Bears and Miami Heat.</string>
+    <string name="communication1_info">Home: Chicago, IL\nMajor: Telecommunication and Film\nYear: Graduate\nPosition: Intern\n\n</string>
+    <string name="communication1_about">My Job: Reginald serves as an Intern at University Programs, as well as a Graduate Teaching Assistant and Research Assistant for the Telecommunication and Film department. As an Intern, Reginald has worked in a team environment to plan, organize, and execute a variety of events. Reginald states, "UP has provided me with a great opportunity to further obtain working knowledge and real world experience in, among others things, project management, event coordination, logistics, marketing, and public relations."\n\nFun Fact: In addition to being a fan of Bama athletics, Reginald is also a fan of several professional sporting teams, including the Chicago Bears and Miami Heat.</string>
     <string name="communication2_name">Allison Terrell</string>
-    <string name="communication2_info">Home: Slapout,AL\nMajor: Public Relations\nYear: Senior\nPosition: Communications Team\n\nMy Job: I love
-        designing various flyers and invitations for the events at UP, and I am also responsible for writing press releases and promoting events
+    <string name="communication2_info">Home: Slapout,AL\nMajor: Public Relations\nYear: Senior\nPosition: Communications Team\n\n</string>
+    <string name="communication2_about">My Job: I love designing various flyers and invitations for the events at UP, and I am also responsible for writing press releases and promoting events
         through Constant Contact. One of my favorite responsibilities is updating UP\'s social media, and I am especially fond of brainstorming
-        and providing new ideas to increase followers and awareness.\nFun Fact: I\'m a UA Cheerleader!</string>
+        and providing new ideas to increase followers and awareness.\n\nFun Fact: I\'m a UA Cheerleader!</string>
     <string name="intern1_name">Brittney Wormely</string>
-    <string name="intern1_info">Home: Grove, AL\nMajor: Law\nYear: 2nd year Law student\nPosition: Intern\n\nMy Job: I recruit performers, speakers
-        and volunteers to perform at the University of Alabama. During the recruitment process, I research the contract history of the individual.
-        Next, I review and negotiate contract.\nFun Fact: I enjoy reading astrology.</string>
+    <string name="intern1_info">Home: Grove, AL\nMajor: Law\nYear: 2nd year Law student\nPosition: Intern\n\n</string>
+    <string name="intern1_about">My Job: I recruit performers, speakers and volunteers to perform at the University of Alabama. During the recruitment process, I research the contract history of the individual.
+        Next, I review and negotiate contract.\n\nFun Fact: I enjoy reading astrology.</string>
+
     <string name="title_contactus">Who We Are</string>
     <string name="text_contactus">700 University Boulevard\nCapstone Medical Building - Room 236\nBox 870292\nTuscaloosa, AL 35487</string>
 

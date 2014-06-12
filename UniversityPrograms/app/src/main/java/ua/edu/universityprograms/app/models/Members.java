@@ -8,13 +8,15 @@ import android.os.Parcelable;
  */
 public class Members implements Parcelable {
 
-    public String url, info, name;
+    public String url, info, name, about;
 
-    public Members(String url, String name, String info) {
+    public Members(String url, String name, String info, String about) {
         this.url = url;
         this.info = info;
         this.name = name;
+        this.about = about;
     }
+
 
     @Override
     public int describeContents() {
@@ -26,19 +28,18 @@ public class Members implements Parcelable {
         dest.writeString(this.url);
         dest.writeString(this.info);
         dest.writeString(this.name);
+        dest.writeString(this.about);
     }
 
     private Members(Parcel in) {
         this.url = in.readString();
         this.info = in.readString();
         this.name = in.readString();
+        this.about = in.readString();
     }
 
-    public static Parcelable.Creator<Members> CREATOR = new Parcelable.Creator<Members>() {
-
-        public Members createFromParcel(Parcel source) {
-            return new Members(source);
-        }
+    public static Creator<Members> CREATOR = new Creator<Members>() {
+        public Members createFromParcel(Parcel source) {return new Members(source); }
 
         public Members[] newArray(int size) {
             return new Members[size];

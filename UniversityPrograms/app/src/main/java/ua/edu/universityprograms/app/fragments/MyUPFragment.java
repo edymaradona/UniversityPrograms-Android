@@ -2,7 +2,9 @@ package ua.edu.universityprograms.app.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,16 +24,16 @@ import ua.edu.universityprograms.app.activities.Settings;
  */
 public class MyUPFragment extends Fragment {
 
-    @InjectView(R.id.tvCwid)
-    TextView cwid;
+    @InjectView(R.id.tvName)
+    TextView name;
     @InjectView(R.id.tvEmail)
     TextView email;
     @InjectView(R.id.bRSVP)
     Button crsvp;
     @InjectView(R.id.bComment)
     Button bcomment;
-    @InjectView(R.id.bEdit)
-    Button bedit;
+
+    SharedPreferences preferences;
 
     private static final String ARG_SECTION_NUMBER = "";
 
@@ -57,6 +59,13 @@ public class MyUPFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String name = preferences.getString("Name", "");
+        String email = preferences.getString("Email", "");
+        if(!name.equalsIgnoreCase(""))
+            this.name.setText(name);
+        if(!email.equalsIgnoreCase(""))
+            this.email.setText(email);
     }
 
     @Override

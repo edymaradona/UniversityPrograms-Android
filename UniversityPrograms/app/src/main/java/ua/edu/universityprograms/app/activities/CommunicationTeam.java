@@ -37,8 +37,8 @@ public class CommunicationTeam extends Activity implements AdapterView.OnItemCli
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_16.jpg", res.getString(R.string.communication1_name), res.getString(R.string.communication1_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_11.jpg", res.getString(R.string.communication2_name), res.getString(R.string.communication2_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_16.jpg", res.getString(R.string.communication1_name), res.getString(R.string.communication1_info), res.getString(R.string.communication1_about)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_11.jpg", res.getString(R.string.communication2_name), res.getString(R.string.communication2_info), res.getString(R.string.communication2_about)));
 
         return list;
     }

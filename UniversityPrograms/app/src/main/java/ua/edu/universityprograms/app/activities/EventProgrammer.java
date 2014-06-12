@@ -36,10 +36,10 @@ public class EventProgrammer  extends Activity implements AdapterView.OnItemClic
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_14.jpg", res.getString(R.string.event_prog1_name), res.getString(R.string.event_prog1_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_6.jpg", res.getString(R.string.event_prog2_name), res.getString(R.string.event_prog2_info)));
-        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew.jpg", res.getString(R.string.event_prog3_name), res.getString(R.string.event_prog3_info)));
-        list.add(new Members("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQCH54gYMjvoXek0ju1q9xlFB635cIdQTNHXcxw_vh6HHEuBVR4UPUbszyl", res.getString(R.string.event_prog4_name), res.getString(R.string.event_prog4_info)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_14.jpg", res.getString(R.string.event_prog1_name), res.getString(R.string.event_prog1_info), res.getString(R.string.event_prog1_about)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_6.jpg", res.getString(R.string.event_prog2_name), res.getString(R.string.event_prog2_info), res.getString(R.string.event_prog2_about)));
+        list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew.jpg", res.getString(R.string.event_prog3_name), res.getString(R.string.event_prog3_info), res.getString(R.string.event_prog3_about)));
+        list.add(new Members("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQCH54gYMjvoXek0ju1q9xlFB635cIdQTNHXcxw_vh6HHEuBVR4UPUbszyl", res.getString(R.string.event_prog4_name), res.getString(R.string.event_prog4_info), res.getString(R.string.event_prog4_about)));
 
         return list;
     }

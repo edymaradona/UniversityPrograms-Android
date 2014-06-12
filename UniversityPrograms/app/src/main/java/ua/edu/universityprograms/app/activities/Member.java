@@ -16,6 +16,8 @@ public class Member extends Activity {
 
     @InjectView(R.id.tvMemberName)
     TextView tvName;
+    @InjectView(R.id.tvMemberAbout)
+    TextView tvAbout;
     @InjectView(R.id.tvMemberInfo)
     TextView tvInfo;
     @InjectView(R.id.ivMemberProfile)
@@ -29,6 +31,7 @@ public class Member extends Activity {
         Members member = getIntent().getParcelableExtra("memb");
         tvName.setText(member.name);
         tvInfo.setText(member.info);
+        tvAbout.setText(member.about);
         Picasso.with(this).load(member.url).into(ivProfile);
     }
 

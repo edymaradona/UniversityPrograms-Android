@@ -37,9 +37,9 @@ public class GraduateAssistant extends Activity implements AdapterView.OnItemCli
         public ArrayList<Members> getAssistants(){
             list = new ArrayList<Members>();
             Resources res = getResources();
-            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_15.jpg", res.getString(R.string.grad_assist1_name), res.getString(R.string.grad_assist1_info)));
-            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_9.jpg", res.getString(R.string.grad_assist2_name), res.getString(R.string.grad_assist2_info)));
-            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_13.jpg", res.getString(R.string.grad_assist3_name), res.getString(R.string.grad_assist3_info)));
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_15.jpg", res.getString(R.string.grad_assist1_name), res.getString(R.string.grad_assist1_info), res.getString(R.string.grad_assist1_about)));
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_9.jpg", res.getString(R.string.grad_assist2_name), res.getString(R.string.grad_assist2_info), res.getString(R.string.grad_assist2_about)));
+            list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_13.jpg", res.getString(R.string.grad_assist3_name), res.getString(R.string.grad_assist3_info), res.getString(R.string.grad_assist3_about)));
 
             return list;
         }

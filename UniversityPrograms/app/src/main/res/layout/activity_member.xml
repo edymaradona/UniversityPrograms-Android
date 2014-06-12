@@ -12,31 +12,53 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
         tools:context=".activities.Member">
-        <TextView
-            android:text="@string/hello_world"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMemberName"
-            android:textColor="@color/white"
-            android:layout_below="@+id/ivMemberProfile"
-            android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:textColor="@color/white"
-            android:id="@+id/tvMemberInfo"
-            android:layout_below="@+id/tvMemberName"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/ivMemberProfile"
+            android:layout_above="@+id/tvMemberAbout"
+            android:layout_alignParentTop="true">
+
+
+            <TextView
+                android:text="@string/hello_world"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMemberName"
+                android:textSize="20sp"
+                android:layout_marginBottom="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:textColor="@color/white"
+                android:id="@+id/tvMemberInfo" />
+        </LinearLayout>
+
         <ImageView
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:scaleType="centerCrop"
             android:src="@drawable/alogo1"
             android:id="@+id/ivMemberProfile"
-            android:layout_marginTop="47dp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginEnd="8sp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:textColor="@color/white"
+            android:layout_below="@+id/ivMemberProfile"
+            android:id="@+id/tvMemberAbout" />
     </RelativeLayout>
+
 </ScrollView>
