@@ -121,6 +121,9 @@ public class MyUPFragment extends Fragment {
     public void onResume() {
         super.onResume();
         GetUserFromPrefs();
+
+
+        
     }
 
     @Override
