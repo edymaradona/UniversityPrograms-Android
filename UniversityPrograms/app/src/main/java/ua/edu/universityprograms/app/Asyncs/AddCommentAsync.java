@@ -30,8 +30,8 @@ public class AddCommentAsync extends AsyncTask<DtoAddComment, Void, Boolean> {
     String TAG = "Adding comment";
     String uRLString = "";
 
-    public AddCommentAsync(Context cxt,int eventId) {
-        uRLString = cxt.getString(R.string.base_API) + cxt.getString(R.string.get_event) + eventId + "&" + cxt.getString(R.string.token_cwid);
+    public AddCommentAsync(Context cxt) {
+        uRLString = cxt.getString(R.string.base_API) + cxt.getString(R.string.addComment);
     }
 
     @Override
@@ -48,18 +48,19 @@ public class AddCommentAsync extends AsyncTask<DtoAddComment, Void, Boolean> {
         Boolean b = false;
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
-        uRLString = uRLString + addComment;
         try {
             Log.d(TAG, uRLString);
             HttpPost request = new HttpPost(uRLString);
-            StringEntity se = new StringEntity(new Gson().toJson(addComment));
+            String json = new Gson().toJson(addComment);
+            StringEntity se = new StringEntity(json);
             se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            request.setEntity(se);
             response = httpclient.execute(request);
             Log.i(TAG + " Response Status", response.getStatusLine().toString());
             String responseString = EntityUtils.toString(response.getEntity());
             Log.i(TAG + " Response String", responseString);
             //Parse responses
-            b = new Gson().fromJson(responseString, Boolean.class);
+            b =  Boolean.valueOf(responseString);
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {

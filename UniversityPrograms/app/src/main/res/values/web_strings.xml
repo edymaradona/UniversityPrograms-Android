@@ -4,6 +4,10 @@
     <string name="get_events">api/Event/events?cwid=</string>
     <string name="get_event">api/Event/getEvent?eventId=</string>
     <string name="token_cwid">cwid=</string>
+    <string name="RSVP">api/Event/rsvp</string>
+    <string name="unRSVP">api/Event/unRsvp</string>
+    <string name="addComment">api/Comment/addComment</string>
+    <string name="getComments">api/Comment/comments?cwid=</string>
 
 
 </resources>

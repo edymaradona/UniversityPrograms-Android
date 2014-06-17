@@ -8,10 +8,11 @@ import android.os.Parcelable;
  */
 public class User implements Parcelable {
 
-    String uName, uEmail, uCwid;
+    public String uFirstName, uLastName, uEmail, uCwid;
 
-    public User(String uName, String uEmail, String uCwid) {
-        this.uName = uName;
+    public User(String uFirstName, String uLastName, String uEmail, String uCwid) {
+        this.uFirstName = uFirstName;
+        this.uLastName = uLastName;
         this.uEmail = uEmail;
         this.uCwid = uCwid;
     }
@@ -24,13 +25,15 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.uName);
+        dest.writeString(this.uFirstName);
+        dest.writeString(this.uLastName);
         dest.writeString(this.uEmail);
         dest.writeString(this.uCwid);
     }
 
     private User(Parcel in) {
-        this.uName = in.readString();
+        this.uFirstName = in.readString();
+        this.uLastName = in.readString();
         this.uEmail = in.readString();
         this.uCwid = in.readString();
     }

@@ -23,11 +23,10 @@
         lifelong learning and allows all students to find a place of involvement and importance.</string>
     <string name="dir_name">LaToya Scott</string>
     <string name="dir_info">Director\nPhone: (205) 348-9958\nFax: (205) 348-3247\nEmail: scott060@sa.ua.edu</string>
-    <string name="dir_about"> </string>
+    <string name="dir_about"></string>
     <string name="prog_assist_name">Kimberly Jones</string>
     <string name="prog_assist_about"></string>
     <string name="prog_assist_info">Program Assistant\nPhone: (205) 348-7525\nFax: (205)348-8251\nEmail: kmjones13@sa.ua.edu</string>
-
     <string name="grad_assist1_name">Averie Armstead</string>
     <string name="grad_assist1_info">Home: Birmingham, AL\nMajor: Sports Management\nYear: Graduate\nPosition: Graduate Assistant\n\n</string>
     <string name="grad_assist1_about">My Job: I have been with University Programs since September 2012 working as an event programmer
@@ -88,7 +87,6 @@
     <string name="intern1_info">Home: Grove, AL\nMajor: Law\nYear: 2nd year Law student\nPosition: Intern\n\n</string>
     <string name="intern1_about">My Job: I recruit performers, speakers and volunteers to perform at the University of Alabama. During the recruitment process, I research the contract history of the individual.
         Next, I review and negotiate contract.\n\nFun Fact: I enjoy reading astrology.</string>
-
     <string name="title_contactus">Who We Are</string>
     <string name="text_contactus">700 University Boulevard\nCapstone Medical Building - Room 236\nBox 870292\nTuscaloosa, AL 35487</string>
 
@@ -101,5 +99,6 @@
     <string name="title_activity_member">Member</string>
     <string name="title_activity_event">Event</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_add_comment">AddComment</string>
 
 </resources>

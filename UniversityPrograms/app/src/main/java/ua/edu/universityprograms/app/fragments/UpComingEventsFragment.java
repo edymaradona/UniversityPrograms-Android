@@ -4,10 +4,9 @@ package ua.edu.universityprograms.app.fragments;
  * Created by vcaciuc on 6/3/2014.
  */
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.Adapters.EventsAdapter;
-import ua.edu.universityprograms.app.Asyncs.UpComingEventsAsync;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.activities.Event;
 import ua.edu.universityprograms.app.models.DtoEventBase;
@@ -32,7 +30,6 @@ public class UpComingEventsFragment extends Fragment {
     @InjectView(R.id.listView)
     ListView list;
     EventsAdapter adapter;
-
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -43,38 +40,30 @@ public class UpComingEventsFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static UpComingEventsFragment fragmentInstance(int sectionNumber) {
+    public static UpComingEventsFragment fragmentInstance() {
         UpComingEventsFragment fragment = new UpComingEventsFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
     public UpComingEventsFragment() {
+
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        UpComingEventsAsync ucea = new UpComingEventsAsync(activity){
+
+    public void setUpcomingEventsList(final ArrayList<DtoEventBase> dtoEventBases){
+        adapter = new EventsAdapter(getActivity(), dtoEventBases);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            protected void onPostExecute(final ArrayList<DtoEventBase> dtoEventBases) {
-                super.onPostExecute(dtoEventBases);
-                adapter = new EventsAdapter(getActivity(), dtoEventBases);
-                list.setAdapter(adapter);
-                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                        Intent intent = new Intent(getActivity(), Event.class);
-                        DtoEventBase m = dtoEventBases.get(pos);
-                        intent.putExtra("event", m.eventId);
-                        startActivity(intent);
-                    }
-                });
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                Intent intent = new Intent(getActivity(), Event.class);
+                DtoEventBase m = dtoEventBases.get(pos);
+                intent.putExtra("event", m.eventId);
+                startActivity(intent);
             }
-        };
-        ucea.execute("");
+        });
     }
 
     @Override

@@ -19,19 +19,19 @@
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
         android:background="@color/lightgrey"
-        android:id="@+id/etEmail"/>
+        android:id="@+id/etTitle"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="Comment"
         android:textColor="@color/white"
-        android:id="@+id/textView3"/>
+        android:id="@+id/tex"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="140dp"
         android:layout_marginBottom="10dp"
         android:background="@color/lightgrey"
-        android:id="@+id/edComment"/>
+        android:id="@+id/etComment"/>
     <Button
         android:layout_width="160dp"
         android:layout_height="40dp"

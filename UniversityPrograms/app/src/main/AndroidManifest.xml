@@ -76,6 +76,10 @@
             android:name=".activities.Settings"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name=".activities.AddComment"
+            android:label="@string/title_activity_add_comment" >
+        </activity>
     </application>
 
 </manifest>

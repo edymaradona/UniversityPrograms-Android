@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.Event" >
-    <item android:id="@+id/action_rsvp"
-        android:title="RSVP"
+    <item android:id="@+id/action_unrsvp"
+        android:title="unRSVP"
         android:orderInCategory="100"
         android:showAsAction="always" />
 </menu>

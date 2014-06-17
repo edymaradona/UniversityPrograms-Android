@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_my_up_settings"
-        android:title="Settings"
+    <item android:id="@+id/action_add_comment"
+        android:title="Add Comment"
         android:orderInCategory="100"
         android:icon="@android:drawable/ic_menu_edit"
+        android:showAsAction="always" />
+    <item android:id="@+id/action_my_up_settings"
+        android:title="Settings"
+        android:orderInCategory="101"
+        android:icon="@android:drawable/ic_menu_preferences"
         android:showAsAction="always" />
 </menu>

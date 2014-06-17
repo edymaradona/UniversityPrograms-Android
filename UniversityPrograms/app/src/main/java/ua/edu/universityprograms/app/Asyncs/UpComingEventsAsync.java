@@ -32,8 +32,8 @@ public class UpComingEventsAsync extends AsyncTask<String, Void, ArrayList<DtoEv
     String TAG = "Upcoming events";
     String uRLString = "";
 
-    public UpComingEventsAsync(Context cxt) {
-        uRLString = cxt.getString(R.string.base_API) + cxt.getString(R.string.get_events);
+    public UpComingEventsAsync(Context cxt,String cwid) {
+        uRLString = cxt.getString(R.string.base_API) + cxt.getString(R.string.get_events)+cwid;
     }
 
     @Override

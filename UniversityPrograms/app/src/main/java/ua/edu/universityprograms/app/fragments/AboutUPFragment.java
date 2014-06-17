@@ -1,15 +1,12 @@
 package ua.edu.universityprograms.app.fragments;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import butterknife.ButterKnife;
@@ -34,10 +31,9 @@ public class AboutUPFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "";
 
-    public static AboutUPFragment fragmentInstance(int sectionNumber) {
+    public static AboutUPFragment fragmentInstance() {
         AboutUPFragment fragment = new AboutUPFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }

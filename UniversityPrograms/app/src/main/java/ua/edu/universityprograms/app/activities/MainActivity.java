@@ -1,25 +1,34 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 import java.util.Locale;
 
+import ua.edu.universityprograms.app.Asyncs.GetCommentAsync;
+import ua.edu.universityprograms.app.Asyncs.UpComingEventsAsync;
 import ua.edu.universityprograms.app.R;
+import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.fragments.AboutUPFragment;
 import ua.edu.universityprograms.app.fragments.MyUPFragment;
 import ua.edu.universityprograms.app.fragments.UpComingEventsFragment;
+import ua.edu.universityprograms.app.models.DtoComment;
+import ua.edu.universityprograms.app.models.DtoEventBase;
+import ua.edu.universityprograms.app.models.User;
 
 
-public class MainActivity extends Activity implements ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -36,10 +45,19 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
      */
     ViewPager mViewPager;
 
+    SharedPreferences preferences;
+
+    UpComingEventsFragment upcomingEvents;
+    AboutUPFragment aboutUp;
+    MyUPFragment myUp;
+
+    public User you;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        InitFragments();
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -47,7 +65,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -77,21 +95,64 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getUpComingEventes();
+    }
 
+    private void InitFragments() {
+        upcomingEvents = UpComingEventsFragment.fragmentInstance();
+        aboutUp = AboutUPFragment.fragmentInstance();
+        myUp = MyUPFragment.fragmentInstance();
+    }
+
+    private void getUpComingEventes(){
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String user = preferences.getString(UpConstants.USER_KEY, "");
+        you = new Gson().fromJson(user,User.class);
+        String cwid = "";
+        if(you != null){
+            if(you.uCwid != null){
+                cwid = you.uCwid;
+            }
+        }
+
+        UpComingEventsAsync ucea = new UpComingEventsAsync(this, cwid){
+            @Override
+            protected void onPostExecute(final ArrayList<DtoEventBase> dtoEventBases) {
+                super.onPostExecute(dtoEventBases);
+                    upcomingEvents.setUpcomingEventsList(dtoEventBases);
+                    myUp.setRSVPedEvents(dtoEventBases);
+            }
+        };
+        ucea.execute("");
+
+        GetCommentAsync getComments = new GetCommentAsync(this, cwid){
+            @Override
+            protected void onPostExecute(ArrayList<DtoComment> dtoComments) {
+                super.onPostExecute(dtoComments);
+                myUp.setComments(dtoComments);
+            }
+        };
+        getComments.execute();
+    }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabSelected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabUnselected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
+
     }
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabReselected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
+
     }
 
     /**
@@ -110,11 +171,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return UpComingEventsFragment.fragmentInstance(position);
+                    return upcomingEvents;
                 case 1:
-                    return AboutUPFragment.fragmentInstance(position);
+                    return aboutUp;
                 case 2:
-                    return MyUPFragment.fragmentInstance(position);
+                    return myUp;
             }
             return null;
         }

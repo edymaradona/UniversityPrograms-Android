@@ -9,15 +9,20 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.R;
+import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.models.User;
 
 public class Settings extends Activity {
 
-    @InjectView(R.id.etName)
-    EditText etName;
+    @InjectView(R.id.etFirstName)
+    EditText etFName;
+    @InjectView(R.id.etLastName)
+    EditText etLName;
     @InjectView(R.id.etEmail)
     EditText etEmail;
     @InjectView(R.id.etCwid)
@@ -32,15 +37,20 @@ public class Settings extends Activity {
         ButterKnife.inject(this);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String name = preferences.getString("Name", "");
-        String email = preferences.getString("Email", "");
-        String cwid = preferences.getString("CWID", "");
-        if(!name.equalsIgnoreCase(""))
-            etName.setText(name);
-        if(!email.equalsIgnoreCase(""))
-            etEmail.setText(email);
-        if(!cwid.equalsIgnoreCase(""))
-            etCwid.setText(cwid);
+        String user = preferences.getString(UpConstants.USER_KEY, "");
+        User you = new Gson().fromJson(user,User.class);
+        try {
+            if (!you.uFirstName.equalsIgnoreCase(""))
+                etFName.setText(you.uFirstName);
+            if (!you.uLastName.equalsIgnoreCase(""))
+                etLName.setText(you.uLastName);
+            if (!you.uEmail.equalsIgnoreCase(""))
+                etEmail.setText(you.uEmail);
+            if (!you.uCwid.equalsIgnoreCase(""))
+                etCwid.setText(you.uCwid);
+        }catch(NullPointerException e){
+            // Do nothing
+        }
     }
 
     @Override
@@ -57,10 +67,9 @@ public class Settings extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_save) {
+            User saveMe = new User(etFName.getText().toString(),etLName.getText().toString(), etEmail.getText().toString(),etCwid.getText().toString());
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("Name", etName.getText().toString());
-            editor.putString("Email", etEmail.getText().toString());
-            editor.putString("CWID", etCwid.getText().toString());
+            editor.putString(UpConstants.USER_KEY, new Gson().toJson(saveMe));
             editor.commit();
             Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             return true;
