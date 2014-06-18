@@ -6,30 +6,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="@color/darkred">
+    android:paddingRight="@dimen/activity_horizontal_margin">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="Subject"
-        android:textColor="@color/white"
         android:id="@+id/tvMemberName"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
+        android:padding="2sp"
+        android:textColor="@color/black"
         android:background="@color/lightgrey"
         android:id="@+id/etTitle"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="Comment"
-        android:textColor="@color/white"
         android:id="@+id/tex"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="140dp"
         android:layout_marginBottom="10dp"
+        android:padding="2sp"
+        android:gravity="start"
+        android:textColor="@color/black"
         android:background="@color/lightgrey"
         android:id="@+id/etComment"/>
     <Button

@@ -3,12 +3,16 @@ package ua.edu.universityprograms.app.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +30,8 @@ import ua.edu.universityprograms.app.Asyncs.GetEventAsync;
 import ua.edu.universityprograms.app.Asyncs.RsvpAsync;
 import ua.edu.universityprograms.app.Asyncs.unRSVPAsync;
 import ua.edu.universityprograms.app.R;
+import ua.edu.universityprograms.app.Utils.DateUtils;
+import ua.edu.universityprograms.app.Utils.ShareUtilities;
 import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.fragments.NoCWIDdialog;
 import ua.edu.universityprograms.app.models.DtoEvent;
@@ -35,8 +41,8 @@ import ua.edu.universityprograms.app.models.DtoUnRsvp;
 import ua.edu.universityprograms.app.models.User;
 
 public class Event extends FragmentActivity {
-    @InjectView(R.id.tvEventName)
-    TextView name;
+    @InjectView(R.id.tvEventAttending)
+    TextView attending;
     @InjectView(R.id.tvTimeUntil)
     TextView until;
     @InjectView(R.id.tvLocation)
@@ -49,11 +55,12 @@ public class Event extends FragmentActivity {
     Boolean isRSVPed = false;
     Context mcontext;
     User u;
-    int eventID;
+    int eventID, attend;
     SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         ButterKnife.inject(this);
@@ -72,10 +79,15 @@ public class Event extends FragmentActivity {
             @Override
             protected void onPostExecute(DtoEvent dtoEvent) {
                 super.onPostExecute(dtoEvent);
-                name.setText(dtoEvent.eventName);
+                attend = dtoEvent.numberAttending;
+                attending.setText(Attending(attend));
                 DateTime dt = new DateTime(dtoEvent.startDate);
-                DateTimeFormatter fmt = DateTimeFormat.forPattern("MMM d, yy" + "\n" + "'at'" + " h:mm aa");
+                DateTime dte = new DateTime(dtoEvent.endDate);
+                DateTimeFormatter fmte = DateTimeFormat.forPattern("h:mm aa");
+                DateTimeFormatter fmt = DateTimeFormat.forPattern("MMM d, yyyy" + "\n" + "h:mm aa" + "'-'");
+                String eTime = fmte.print(dte);
                 String sTime = fmt.print(dt);
+                sTime = sTime + eTime;
                 until.setText(sTime);
                 Picasso.with(mcontext).load(dtoEvent.imageUrl).into(pic);
                 description.setText(dtoEvent.eventDescription);
@@ -86,6 +98,7 @@ public class Event extends FragmentActivity {
                     location.setText("");
                 }
                 isRSVPed = dtoEvent.isRegistered;
+                ActionBarRefresher(dtoEvent);
                 invalidateOptionsMenu();
             }
 
@@ -96,8 +109,24 @@ public class Event extends FragmentActivity {
                         + loc.state + " " + loc.zip + "\n" + roomN;
                 return temp;
             }
+
         };
         gea.execute("");
+    }
+
+    private String Attending(int a){
+        String att;
+        if(a == 0){
+            att = "No one is attending yet";
+        }else{
+            att = a + " people are attending";
+        }
+        return att;
+    }
+
+    private void ActionBarRefresher(DtoEvent event){
+        getActionBar().setTitle(event.eventName);
+        getActionBar().setSubtitle(DateUtils.timeUntilLongFormat(event.startDate, event.endDate));
     }
 
     @Override
@@ -152,6 +181,9 @@ public class Event extends FragmentActivity {
                 dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
             }
         }
+        if(id == R.id.action_share){
+            ShareUtilities.shareChooser(Event.this);
+        }
         return super.onOptionsItemSelected(item);
     }
     public void RSVPforEvent(int i, User u){
@@ -162,6 +194,7 @@ public class Event extends FragmentActivity {
                 super.onPostExecute(aBoolean);
                 if(aBoolean){
                     isRSVPed = true;
+                    attending.setText(Attending(++attend));
                     Toast.makeText(Event.this, "You have RSVPed for the event", Toast.LENGTH_SHORT).show();
                     invalidateOptionsMenu();
                 }else{
@@ -179,6 +212,7 @@ public class Event extends FragmentActivity {
                 super.onPostExecute(aBoolean);
                 if(aBoolean){
                     isRSVPed = false;
+                    attending.setText(Attending(--attend));
                     Toast.makeText(Event.this, "You have unRSVPed for the event", Toast.LENGTH_SHORT).show();
                     invalidateOptionsMenu();
                 }else{

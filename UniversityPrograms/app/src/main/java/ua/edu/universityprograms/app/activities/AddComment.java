@@ -1,7 +1,9 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +34,7 @@ public class AddComment extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comment_page);
         ButterKnife.inject(this);

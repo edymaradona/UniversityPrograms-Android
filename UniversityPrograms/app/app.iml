@@ -76,6 +76,8 @@
     <orderEntry type="library" exported="" name="butterknife-5.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v13-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.2.0" level="project" />
+    <orderEntry type="module" module-name="1.1.0" exported="" />
+    <orderEntry type="module" module-name="1.0.3" exported="" />
   </component>
 </module>
 

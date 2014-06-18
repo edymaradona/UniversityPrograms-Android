@@ -3,6 +3,11 @@
     tools:context=".activities.Event" >
     <item android:id="@+id/action_unrsvp"
         android:title="unRSVP"
+        android:orderInCategory="101"
+        android:showAsAction="always" />
+    <item android:id="@+id/action_share"
+        android:title="Share"
+        android:icon="@android:drawable/ic_menu_share"
         android:orderInCategory="100"
         android:showAsAction="always" />
 </menu>

@@ -6,7 +6,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300sp"
+        android:layout_height="250sp"
         android:id="@+id/ivEventPic"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
@@ -25,49 +25,54 @@
         android:layout_alignBottom="@+id/ivEventPic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white"
             android:text="Medium Text"
-            android:gravity="center"
-            android:id="@+id/tvEventName"
-            android:textSize="24sp"
-            android:textStyle="bold"
+
+            android:layout_gravity="bottom"
+            android:id="@+id/tvEventAttending"
+            android:layout_marginLeft="2sp"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Medium Text\n"
             android:gravity="right"
             android:textColor="@color/white"
-            android:id="@+id/tvTimeUntil"
-            android:layout_alignParentEnd="true" />
+            android:id="@+id/tvTimeUntil"/>
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="4sp"
+        android:paddingTop="6sp"
+        android:paddingBottom="4sp"
+        android:layout_marginLeft="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/darkgrey"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/tvLocation"
-        android:layout_below="@+id/ivEventPic"
-        android:layout_alignLeft="@+id/ivEventPic"
-        android:layout_alignStart="@+id/ivEventPic" />
+        android:layout_below="@+id/ivEventPic" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4sp"
+        android:layout_marginLeft="2sp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/tvDescription"
         android:layout_below="@+id/tvLocation"
-        android:layout_alignLeft="@+id/tvLocation"
-        android:layout_alignStart="@+id/tvLocation" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

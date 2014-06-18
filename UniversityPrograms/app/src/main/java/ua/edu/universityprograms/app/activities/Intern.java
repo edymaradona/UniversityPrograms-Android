@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -26,13 +27,21 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);
         MembersAdapter adapter = new MembersAdapter(this, getAssistants());
         assistants.setAdapter(adapter);
         assistants.setOnItemClickListener(this);
+        ActionBarRefresher();
     }
+
+    public void ActionBarRefresher() {
+        getActionBar().setTitle("Intern");
+    }
+
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();

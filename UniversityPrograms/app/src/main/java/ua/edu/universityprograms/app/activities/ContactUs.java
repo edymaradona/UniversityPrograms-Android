@@ -3,6 +3,7 @@ package ua.edu.universityprograms.app.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class ContactUs extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contact_us);
         ButterKnife.inject(this);

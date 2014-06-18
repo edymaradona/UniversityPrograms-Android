@@ -30,11 +30,6 @@ public class UpComingEventsFragment extends Fragment {
     @InjectView(R.id.listView)
     ListView list;
     EventsAdapter adapter;
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    private static final String ARG_SECTION_NUMBER = "";
 
     /**
      * Returns a new instance of this fragment for the given section
