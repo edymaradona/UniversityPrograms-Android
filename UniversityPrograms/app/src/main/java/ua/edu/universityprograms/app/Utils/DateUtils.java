@@ -48,10 +48,16 @@ public class DateUtils {
         int daysLeft = Days.daysBetween(dt, et).getDays();
         int hoursLeft = Hours.hoursBetween(dt, et).getHours();
         int minLeft = Minutes.minutesBetween(dt, et).getMinutes();
-        if(days > 0 ){
+        if(days == 1 ) {
+            timeUntil = timeUntil + days + " day from now";
+            return timeUntil;
+        }else if(days > 1){
             timeUntil = timeUntil + days + " days from now";
             return timeUntil;
-        }else if(hours > 0){
+        }else if(hours == 1){
+            timeUntil = timeUntil + hours + " hour from now";
+            return timeUntil;
+        }else if(hours > 1){
             timeUntil = timeUntil + hours + " hours from now";
             return timeUntil;
         }else if(min > 0){

@@ -105,7 +105,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onResume() {
         super.onResume();
         getUpComingEventes();
-
     }
 
     private void InitFragments() {
