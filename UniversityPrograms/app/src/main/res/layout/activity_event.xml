@@ -32,7 +32,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white"
             android:text="Medium Text"
-
             android:layout_gravity="bottom"
             android:id="@+id/tvEventAttending"
             android:layout_marginLeft="2sp"
@@ -63,6 +62,15 @@
         android:id="@+id/tvLocation"
         android:layout_below="@+id/ivEventPic" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibGoTo"
+        android:src="@android:drawable/ic_dialog_map"
+        android:layout_alignTop="@+id/tvLocation"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,5 +82,7 @@
         android:layout_below="@+id/tvLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+
 
 </RelativeLayout>

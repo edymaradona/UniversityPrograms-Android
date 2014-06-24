@@ -6,15 +6,17 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 
 import java.util.List;
 
 import ua.edu.universityprograms.app.R;
+import ua.edu.universityprograms.app.activities.Event;
 
 /**
  * Created by vcaciuc on 6/18/2014.
  */
-public class ShareUtilities {
+public class IntentUtils {
 
     public static void shareChooser(Context v){
         String message = "Text I want to share.";
@@ -22,6 +24,12 @@ public class ShareUtilities {
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, message);
         v.startActivity(Intent.createChooser(share, "Title of the dialog the system will open"));
+    }
+
+    public static void goTo(Context v, String address){
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("google.navigation:q=" + address));
+        v.startActivity(intent);
     }
 
     public static void shareAppLinkViaFacebook(Context v) {

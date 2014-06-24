@@ -3,16 +3,14 @@ package ua.edu.universityprograms.app.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +29,7 @@ import ua.edu.universityprograms.app.Asyncs.RsvpAsync;
 import ua.edu.universityprograms.app.Asyncs.unRSVPAsync;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.Utils.DateUtils;
-import ua.edu.universityprograms.app.Utils.ShareUtilities;
+import ua.edu.universityprograms.app.Utils.IntentUtils;
 import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.fragments.NoCWIDdialog;
 import ua.edu.universityprograms.app.models.DtoEvent;
@@ -51,6 +49,8 @@ public class Event extends FragmentActivity {
     TextView description;
     @InjectView(R.id.ivEventPic)
     ImageView pic;
+    @InjectView(R.id.ibGoTo)
+    ImageButton map;
 
     Boolean isRSVPed = false;
     Context mcontext;
@@ -77,7 +77,7 @@ public class Event extends FragmentActivity {
         eventID = i.getIntExtra("event",-1);
         GetEventAsync gea = new GetEventAsync(this, eventID, cwid){
             @Override
-            protected void onPostExecute(DtoEvent dtoEvent) {
+            protected void onPostExecute(final DtoEvent dtoEvent) {
                 super.onPostExecute(dtoEvent);
                 attend = dtoEvent.numberAttending;
                 attending.setText(Attending(attend));
@@ -100,6 +100,22 @@ public class Event extends FragmentActivity {
                 isRSVPed = dtoEvent.isRegistered;
                 ActionBarRefresher(dtoEvent);
                 invalidateOptionsMenu();
+                if(dtoEvent.location == null){
+                    map.setVisibility(View.GONE);
+                }
+                map.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        IntentUtils.goTo(Event.this, intentLocation(dtoEvent.location));
+                    }
+                });
+            }
+
+            public String intentLocation(DtoLocation loc){
+                String street2 = loc.street2 != null ? loc.street2: "";
+                String temp = loc.name + "+" + loc.street1 + street2 + "+" + loc.city + "+"
+                        + loc.state + "+" + loc.zip;
+                return temp;
             }
 
             public String setLocationString(DtoLocation loc){
@@ -109,6 +125,7 @@ public class Event extends FragmentActivity {
                         + loc.state + " " + loc.zip + "\n" + roomN;
                 return temp;
             }
+
 
         };
         gea.execute("");
@@ -182,7 +199,7 @@ public class Event extends FragmentActivity {
             }
         }
         if(id == R.id.action_share){
-            ShareUtilities.shareChooser(Event.this);
+            IntentUtils.shareChooser(Event.this);
         }
         return super.onOptionsItemSelected(item);
     }
