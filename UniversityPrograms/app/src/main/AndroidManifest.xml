@@ -11,6 +11,7 @@
         android:theme="@android:style/Theme.Holo">
         <activity
             android:name=".activities.MainActivity"
+            android:screenOrientation="sensorPortrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.WhatWeDo"
             android:label="@string/app_name" >
             <intent-filter>
@@ -28,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.WhoWeAre"
             android:label="@string/app_name" >
             <intent-filter>
@@ -37,46 +40,57 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.ContactUs"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.TeamMembers"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.Director"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.GraduateAssistant"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.EventProgrammer"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.CommunicationTeam"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.Intern"
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.Member"
             android:label="@string/title_activity_member" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.Event"
             android:label="@string/title_activity_event" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.Settings"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".activities.AddComment"
             android:label="@string/title_activity_add_comment" >
         </activity>

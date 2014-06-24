@@ -106,14 +106,14 @@ public class Event extends FragmentActivity {
                 map.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        IntentUtils.goTo(Event.this, intentLocation(dtoEvent.location));
+                        IntentUtils.goTo(Event.this, intentLocation(dtoEvent.location), getFragmentManager());
                     }
                 });
             }
 
             public String intentLocation(DtoLocation loc){
                 String street2 = loc.street2 != null ? loc.street2: "";
-                String temp = loc.name + "+" + loc.street1 + street2 + "+" + loc.city + "+"
+                String temp = loc.street1 + "+" + street2 + "+" + loc.city + "+"
                         + loc.state + "+" + loc.zip;
                 return temp;
             }

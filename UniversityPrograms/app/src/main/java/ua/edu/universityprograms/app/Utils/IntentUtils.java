@@ -1,5 +1,7 @@
 package ua.edu.universityprograms.app.Utils;
 
+import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +9,11 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.List;
 
-import ua.edu.universityprograms.app.R;
-import ua.edu.universityprograms.app.activities.Event;
+import ua.edu.universityprograms.app.fragments.GoToDialog;
 
 /**
  * Created by vcaciuc on 6/18/2014.
@@ -26,10 +28,17 @@ public class IntentUtils {
         v.startActivity(Intent.createChooser(share, "Title of the dialog the system will open"));
     }
 
-    public static void goTo(Context v, String address){
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                Uri.parse("google.navigation:q=" + address));
-        v.startActivity(intent);
+    public static void goTo(Context v, String address, FragmentManager fm){
+
+        try {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                    Uri.parse("google.navigation:q=" + address));
+            v.startActivity(intent);
+        }catch(ActivityNotFoundException e) {
+            GoToDialog directions = new GoToDialog();
+            directions.show(fm, "blah");
+            Log.e("asdf", "asd");
+        }
     }
 
     public static void shareAppLinkViaFacebook(Context v) {

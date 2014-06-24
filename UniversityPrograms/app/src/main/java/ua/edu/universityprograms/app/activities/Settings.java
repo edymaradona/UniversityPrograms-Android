@@ -1,6 +1,7 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -23,9 +24,10 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.Utils.UpConstants;
+import ua.edu.universityprograms.app.fragments.RestartAppDialog;
 import ua.edu.universityprograms.app.models.User;
 
-public class Settings extends Activity {
+public class Settings extends Activity implements RestartAppDialog.restartAppDialogListener{
 
     @InjectView(R.id.etFirstName)
     EditText etFName;
@@ -85,17 +87,14 @@ public class Settings extends Activity {
         } catch (NullPointerException e) {
             // Do nothing
         }
+        boolean darkTheme = preferences.getInt("theme",android.R.style.Theme_Holo)== android.R.style.Theme_Holo ? true : false;
+        theme.setChecked(darkTheme);
         theme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
-                SharedPreferences.Editor editor = preferences.edit();
-                if(isChecked){
-                    editor.putInt("theme", android.R.style.Theme_Holo);
-                }else{
-                    editor.putInt("theme", android.R.style.Theme_Holo_Light);
-                }
-                editor.commit();
+                RestartAppDialog dialog = new RestartAppDialog();
+                dialog.show(getFragmentManager(), "theme");
             }
         });
     }
@@ -118,5 +117,11 @@ public class Settings extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        dialog.dismiss();
+        theme.setChecked(!theme.isChecked());
     }
 }
