@@ -5,29 +5,23 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:background="@color/darkred"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/alogo"
-        android:layout_gravity="right"
-        android:background="@drawable/alogo"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_whoweare"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:id="@+id/tvMemberInfo" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_whoweare"
         android:textSize="20sp"
-        android:textColor="@color/white"
+        android:layout_marginTop="10sp"
         android:id="@+id/tvMemberName" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alogo1"
+        android:layout_marginTop="90sp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/alogo1"/>
 
 </LinearLayout>

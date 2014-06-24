@@ -17,6 +17,9 @@ public class User implements Parcelable {
         this.uCwid = uCwid;
     }
 
+    public String getFullName(){
+        return uFirstName + " " + uLastName;
+    }
 
     @Override
     public int describeContents() {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/darkred"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -32,7 +31,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:text="@string/dir_name"
@@ -40,7 +38,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:text="@string/dir_info"
                     android:id="@+id/textView2" />
             </LinearLayout>
@@ -67,7 +64,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:text="@string/prog_assist_name"
@@ -75,7 +71,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:text="@string/prog_assist_info"
                     android:id="@+id/textView5" />
             </LinearLayout>

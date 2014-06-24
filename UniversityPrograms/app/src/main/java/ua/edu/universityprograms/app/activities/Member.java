@@ -2,6 +2,7 @@ package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.hdodenhof.circleimageview.CircleImageView;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.models.Members;
 
@@ -21,10 +23,12 @@ public class Member extends Activity {
     @InjectView(R.id.tvMemberInfo)
     TextView tvInfo;
     @InjectView(R.id.ivMemberProfile)
-    ImageView ivProfile;
+    CircleImageView ivProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member);
         ButterKnife.inject(this);
@@ -32,7 +36,7 @@ public class Member extends Activity {
         tvName.setText(member.name);
         tvInfo.setText(member.info);
         tvAbout.setText(member.about);
-        Picasso.with(this).load(member.url).into(ivProfile);
+        Picasso.with(this).load(member.url).noFade().into(ivProfile);
     }
 
 

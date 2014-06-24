@@ -10,7 +10,7 @@
     tools:context=".activities.Settings">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="First Name"
@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Last Name"
@@ -29,8 +29,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
@@ -41,7 +42,7 @@
         android:layout_alignEnd="@+id/etName" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="CWID"
@@ -50,5 +51,13 @@
         android:layout_below="@+id/etEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:checked="true"
+        android:id="@+id/swTheme"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

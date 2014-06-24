@@ -136,10 +136,8 @@ public class MyUPFragment extends Fragment {
         MainActivity ma = (MainActivity) getActivity();
         if (ma != null) {
             if (ma.you != null) {
-                if (!ma.you.uFirstName.equalsIgnoreCase(""))
-                    name.setText(ma.you.uFirstName);
-                if (!ma.you.uEmail.equalsIgnoreCase(""))
-                    email.setText(ma.you.uEmail);
+                name.setText(ma.you.getFullName());
+                email.setText(ma.you.uEmail);
             }
         }
     }

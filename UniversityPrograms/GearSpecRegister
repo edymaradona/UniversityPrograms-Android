@@ -28,34 +28,6 @@
     },
     {
       "gearState": "GearStateInstalled",
-      "name": "Picasso",
-      "summary": "A powerful image downloading and caching library for Android",
-      "version": "2.2.0",
-      "type": "jar",
-      "copyright": "2013 Square, Inc.",
-      "homepage": "http://square.github.io/picasso/",
-      "license": "Apache 2.0",
-      "authors": [
-        {
-          "name": "Square, Inc.",
-          "email": "jakewharton@gmail.com"
-        }
-      ],
-      "minimum_api": 19,
-      "source": {
-        "url": "http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.2.0/picasso-2.2.0.jar"
-      },
-      "tags": [
-        "image",
-        "caching",
-        "handling",
-        "downloading",
-        "photo",
-        "picture"
-      ]
-    },
-    {
-      "gearState": "GearStateInstalled",
       "name": "Gson",
       "summary": "Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. Gson can work with arbitrary Java objects including pre-existing objects that you do not have source-code of.\n\n\n\nThere are a few open-source projects that can convert Java objects to JSON. However, most of them require that you place Java annotations in your classes; something that you can not do if you do not have access to the source-code. Most also do not fully support the use of Java Generics. Gson considers both of these as very important design goals.\n\nGson Goals\n\nProvide simple toJson() and fromJson() methods to convert Java objects to JSON and vice-versa\nAllow pre-existing unmodifiable objects to be converted to and from JSON\nExtensive support of Java Generics\nAllow custom representations for objects\nSupport arbitrarily complex objects (with deep inheritance hierarchies and extensive use of generic types)",
       "version": "2.2.4",
@@ -118,6 +90,96 @@
         "calendar",
         "formatting",
         "parsing"
+      ]
+    },
+    {
+      "gearState": "GearStateInstalled",
+      "name": "Saripaar",
+      "summary": "-Declarative style validation powered by Annotations.\n-Extensible\n-Synchronous and Asynchronous validations, you don\u0027t have to worry about threading.\n-Works with Stock Android Widgets, no custom view dependencies.\n-Quick to setup, just download the jar and include it in your libs project folder.\n-Isolates validation logic using rules.\n-Compatible with other annotation frameworks such as AndroidAnnotations, RoboGuice, etc.,",
+      "release_notes": "Android Saripaar is a simple, yet powerful rule-based UI validation library for Android. It is the SIMPLEST validation library available for Android.",
+      "version": "1.0.3",
+      "type": "module",
+      "copyright": "Copyright 2012 Mobs and Geeks",
+      "homepage": "https://github.com/ragunathjawahar/android-saripaar",
+      "license": "Apache",
+      "authors": [
+        {
+          "name": "Ragunath Jawahar",
+          "email": "rj@mobsandgeeks.com"
+        }
+      ],
+      "minimum_api": 4,
+      "source": {
+        "url": "https://github.com/AndroidGears/android-saripaar.git",
+        "tag": "v1.0.3"
+      },
+      "tags": [
+        "Simple",
+        "validation",
+        "android",
+        "UI",
+        "check",
+        "verify",
+        "validate",
+        "Annotations"
+      ]
+    },
+    {
+      "gearState": "GearStateInstalled",
+      "name": "CircleImageView",
+      "summary": "A fast circular ImageView perfect for profile images. This is based on RoundedImageView from Vince Mi which itself is based on techniques recommended by Romain Guy.\n\nIt uses a BitmapShader and does not:\n\ncreate a copy of the original bitmap\nuse a clipPath (which is neither hardware accelerated nor anti-aliased)\nuse setXfermode to clip the bitmap (which means drawing twice to the canvas)\nAs this is just a custom ImaveView and not a custom Drawable or a combination of both, it can be used with all kinds of drawables, i.e. a PicassoDrawable from Picasso or other non-standard drawables (needs some testing though).",
+      "release_notes": "1.1.0\nAdd support for ColorDrawables\nAdd getters and setters for border color and border width",
+      "version": "1.1.0",
+      "type": "module",
+      "copyright": "Copyright 2014 Henning Dodenhof",
+      "homepage": "https://github.com/hdodenhof/CircleImageView",
+      "license": "Apache",
+      "authors": [
+        {
+          "name": "Henning Dodenhof",
+          "email": "henning.dodenhof@gmail.com"
+        }
+      ],
+      "minimum_api": 9,
+      "source": {
+        "url": "https://github.com/AndroidGears/CircleImageView.git",
+        "tag": "v1.1.0",
+        "source_files": "circleimageview"
+      },
+      "tags": [
+        "Image",
+        "circle",
+        "Ramian Guy",
+        "Rounded",
+        "Vince Mi"
+      ]
+    },
+    {
+      "gearState": "GearStateInstalled",
+      "name": "Picasso",
+      "summary": "A powerful image downloading and caching library for Android",
+      "version": "2.3.2",
+      "type": "jar",
+      "copyright": "2013 Square, Inc.",
+      "homepage": "http://square.github.io/picasso/",
+      "license": "Apache",
+      "authors": [
+        {
+          "name": "Square, Inc.",
+          "email": "jakewharton@gmail.com"
+        }
+      ],
+      "minimum_api": 1,
+      "source": {
+        "url": "http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar"
+      },
+      "tags": [
+        "image",
+        "caching",
+        "handling",
+        "downloading",
+        "photo",
+        "picture"
       ]
     }
   ]

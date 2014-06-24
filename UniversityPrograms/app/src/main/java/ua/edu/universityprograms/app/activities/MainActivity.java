@@ -55,6 +55,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        setTheme(preferences.getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitFragments();
@@ -93,8 +95,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+        ActionBarRefresher();
     }
 
+    public void ActionBarRefresher(){
+        getActionBar().setTitle("University Programs");
+    }
     @Override
     protected void onResume() {
         super.onResume();

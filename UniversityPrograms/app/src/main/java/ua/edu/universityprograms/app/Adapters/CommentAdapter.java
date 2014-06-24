@@ -34,7 +34,7 @@ public class CommentAdapter extends ArrayAdapter<DtoComment> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvTitle.setText(item.commentTitle);
+        holder.tvTitle.setText(item.commentTitle + ":");
         holder.tvComment.setText(item.commentText);
         return convertView;
     }

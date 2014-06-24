@@ -1,7 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkred"
     android:id="@+id/scrollView">
     <RelativeLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -29,7 +28,6 @@
                 android:textSize="20sp"
                 android:layout_marginBottom="16sp"
                 android:layout_gravity="center"
-                android:textColor="@color/white"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"/>
@@ -37,11 +35,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:textColor="@color/white"
                 android:id="@+id/tvMemberInfo" />
         </LinearLayout>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:scaleType="centerCrop"
@@ -56,7 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
-            android:textColor="@color/white"
             android:layout_below="@+id/ivMemberProfile"
             android:id="@+id/tvMemberAbout" />
     </RelativeLayout>
