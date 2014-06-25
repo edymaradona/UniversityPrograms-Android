@@ -69,7 +69,7 @@ public class AboutUPFragment extends Fragment {
                         intent = new Intent(getActivity(), TeamMembers.class);
                         break;
                     case 3:
-                        intent = new Intent(getActivity(), ContactUs.class);
+                       intent = new Intent(getActivity(), ContactUs.class);
                         break;
                 }
                 startActivity(intent);

@@ -20,7 +20,7 @@ import ua.edu.universityprograms.app.R;
  * Created by vcaciuc on 6/4/2014.
  */
 public class TeamMembers extends Activity {
-    private String categories[] = {"Director", "Graduate Assistent", "Event Programmer",
+    private String categories[] = {"Director", "Graduate Assistant", "Event Programmer",
             "Communication Team", "Intern"};
     @InjectView(R.id.lvAbout)
     ListView lvMembers;
