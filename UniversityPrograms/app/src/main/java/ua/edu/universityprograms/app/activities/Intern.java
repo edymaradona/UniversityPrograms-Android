@@ -56,6 +56,7 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(Intern.this, Member.class);
         intent.putExtra("memb",list.get(i));
+        intent.putExtra("title","Intern");
         startActivity(intent);
     }
 }

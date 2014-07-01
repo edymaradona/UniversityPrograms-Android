@@ -59,7 +59,7 @@ public class MembersAdapter extends ArrayAdapter<Members> {
         }
         holder.tvName.setText(member.name);
 
-        Picasso.with(mcontext).load(member.url).error(error).resize(width / 2, width / 2).centerCrop().into(holder.ivProfile);
+        Picasso.with(mcontext).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).resize(width / 2, width / 2).centerCrop().into(holder.ivProfile);
         return convertView;
     }
 

@@ -25,7 +25,7 @@ public class IntentUtils {
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, message);
-        v.startActivity(Intent.createChooser(share, "Title of the dialog the system will open"));
+        v.startActivity(Intent.createChooser(share, "Share event via"));
     }
 
     public static void goTo(Context v, String address, FragmentManager fm){

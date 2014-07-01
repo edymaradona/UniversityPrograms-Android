@@ -30,13 +30,15 @@ public class Member extends Activity {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
 
         super.onCreate(savedInstanceState);
+        String name = getIntent().getStringExtra("title");
+        getActionBar().setTitle(name);
         setContentView(R.layout.activity_member);
         ButterKnife.inject(this);
         Members member = getIntent().getParcelableExtra("memb");
         tvName.setText(member.name);
         tvInfo.setText(member.info);
         tvAbout.setText(member.about);
-        Picasso.with(this).load(member.url).noFade().into(ivProfile);
+        Picasso.with(this).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).noFade().into(ivProfile);
     }
 
 

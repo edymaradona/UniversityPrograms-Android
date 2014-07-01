@@ -34,13 +34,14 @@ public class Director extends Activity {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
 
         super.onCreate(savedInstanceState);
+        ActionBarRefresher();
         setContentView(R.layout.activity_dir);
         ButterKnife.inject(this);
         Members member = getIntent().getParcelableExtra("memb");
         tvName.setText(member.name);
         tvInfo.setText(member.info);
         final int i = getIntent().getIntExtra("position", -1);
-        Picasso.with(this).load(member.url).noFade().into(ivProfile);
+        Picasso.with(this).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).noFade().into(ivProfile);
         final String[] txtPhn = new String[]{"2053489958", "2053487525"};
         final String[] recipients = new String[]{"scott060@sa.ua.edu", "kmjones13@sa.ua.edu"};
         call.setOnClickListener(new View.OnClickListener() {

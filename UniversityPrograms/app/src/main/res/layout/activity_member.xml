@@ -44,6 +44,7 @@
                 android:id="@+id/ivMemberProfile"
                 android:layout_width="110sp"
                 android:layout_height="110sp"
+                android:layout_marginTop="30sp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
