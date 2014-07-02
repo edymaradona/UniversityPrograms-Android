@@ -32,10 +32,16 @@ public class AddComment extends Activity {
     User u;
 
 
+    public void ActionBarRefresher() {
+        getActionBar().setTitle("Add Comment");
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
+        ActionBarRefresher();
         setContentView(R.layout.comment_page);
         ButterKnife.inject(this);
         try {

@@ -72,6 +72,7 @@ public class RestartAppDialog extends DialogFragment {
                 startActivity(i);
             }
         });
+        builder.setIcon(android.R.drawable.ic_delete);
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User cancelled the dialog

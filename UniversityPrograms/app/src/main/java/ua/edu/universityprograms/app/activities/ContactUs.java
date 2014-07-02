@@ -25,12 +25,16 @@ public class ContactUs extends Activity {
     String txtPhn = "2053488404";
     SharedPreferences preferences;
 
+    public void ActionBarRefresher() {
+        getActionBar().setTitle("Contact Us");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setTheme(preferences.getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
-
+        ActionBarRefresher();
         setContentView(R.layout.contact_us);
         ButterKnife.inject(this);
 

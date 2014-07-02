@@ -29,14 +29,17 @@ import ua.edu.universityprograms.app.models.User;
 
 public class Settings extends Activity implements RestartAppDialog.restartAppDialogListener{
 
+    @TextRule(order = 1, minLength = 1, message = "Must enter first name")
     @InjectView(R.id.etFirstName)
     EditText etFName;
+    @TextRule(order = 2, minLength = 1, message = "Must enter last name")
     @InjectView(R.id.etLastName)
     EditText etLName;
-    @Email(order = 1, message = "Must be valid email.")
+    @Email(order = 3, message = "Must be valid email.")
+    @TextRule(order = 4, minLength = 1, message = "Must be a valid email")
     @InjectView(R.id.etEmail)
     EditText etEmail;
-    @TextRule(order = 2, minLength = 8, maxLength = 8, message = "Must be a valid CWID")
+    @TextRule(order = 5, minLength = 8, maxLength = 8, message = "Must be a valid CWID")
     @InjectView(R.id.etCwid)
     EditText etCwid;
     @InjectView(R.id.swTheme)
@@ -113,6 +116,10 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_save) {
+            etFName.setError(null);
+            etLName.setError(null);
+            etCwid.setError(null);
+            etEmail.setError(null);
             validator.validate();
             return true;
         }
