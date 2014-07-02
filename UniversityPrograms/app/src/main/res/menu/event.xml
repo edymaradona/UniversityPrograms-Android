@@ -5,9 +5,15 @@
         android:title="RSVP"
         android:orderInCategory="101"
         android:showAsAction="always" />
-    <item android:id="@+id/action_share"
+    <!--<item android:id="@+id/action_share"-->
+        <!--android:title="Share"-->
+        <!--android:icon="@android:drawable/ic_menu_share"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:showAsAction="always" />-->
+    <item
+        android:id="@+id/menu_item_share"
+        android:showAsAction="ifRoom"
         android:title="Share"
-        android:icon="@android:drawable/ic_menu_share"
-        android:orderInCategory="100"
-        android:showAsAction="always" />
+        android:actionProviderClass=
+            "android.widget.ShareActionProvider" />
 </menu>

@@ -2,12 +2,13 @@ package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -16,45 +17,34 @@ import ua.edu.universityprograms.app.R;
 /**
  * Created by vcaciuc on 6/4/2014.
  */
-public class ContactUs extends Activity implements View.OnClickListener {
+public class ContactUs extends Activity {
 
-    @InjectView(R.id.etMessage)
-    EditText message;
-    @InjectView(R.id.etEmail)
-    EditText email;
-    @InjectView(R.id.etFirst)
-    EditText firstN;
-    @InjectView(R.id.etLast)
-    EditText lastN;
-    @InjectView(R.id.bSubmit)
-    Button submit;
+    @InjectView(R.id.bCall)
+    ImageButton call;
 
-    String msg, fname, lname, emailAdd, name;
+    String txtPhn = "2053488404";
+    SharedPreferences preferences;
+
+    public void ActionBarRefresher() {
+        getActionBar().setTitle("Contact Us");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        setTheme(preferences.getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
+        ActionBarRefresher();
         setContentView(R.layout.contact_us);
         ButterKnife.inject(this);
-        submit.setOnClickListener(this);
-    }
 
-    @Override
-    public void onClick(View view) {
-        convert();
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, emailAdd);
-        emailIntent.putExtra(Intent.EXTRA_TEXT, msg);
-        startActivity(emailIntent);
-    }
-
-    private void convert(){
-        msg = message.getText().toString();
-        fname = firstN.getText().toString();
-        lname = lastN.getText().toString();
-        name = fname + lname;
-        emailAdd = email.getText().toString();
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:" + txtPhn));
+                startActivity(callIntent);
+            }
+        });
     }
 }

@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -20,7 +17,7 @@ import ua.edu.universityprograms.app.R;
  * Created by vcaciuc on 6/4/2014.
  */
 public class TeamMembers extends Activity {
-    private String categories[] = {"Director", "Graduate Assistent", "Event Programmer",
+    private String categories[] = {"Director", "Graduate Assistant", "Event Programmer",
             "Communication Team", "Intern"};
     @InjectView(R.id.lvAbout)
     ListView lvMembers;
@@ -50,7 +47,7 @@ public class TeamMembers extends Activity {
                 Intent intent = null;
                 switch (pos) {
                     case 0:
-                        intent = new Intent(TeamMembers.this, Director.class);
+                        intent = new Intent(TeamMembers.this, Directors.class);
                         break;
                     case 1:
                         intent = new Intent(TeamMembers.this, GraduateAssistant.class);

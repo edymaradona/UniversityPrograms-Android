@@ -39,7 +39,7 @@ public class GraduateAssistant extends Activity implements AdapterView.OnItemCli
     }
 
     public void ActionBarRefresher() {
-        getActionBar().setTitle("Graduate Assistent");
+        getActionBar().setTitle("Graduate Assistants");
     }
 
     ArrayList<Members> list;
@@ -59,6 +59,7 @@ public class GraduateAssistant extends Activity implements AdapterView.OnItemCli
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(GraduateAssistant.this, Member.class);
         intent.putExtra("memb", list.get(i));
+        intent.putExtra("title","Graduate Assistant");
         startActivity(intent);
     }
 }

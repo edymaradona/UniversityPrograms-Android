@@ -1,6 +1,7 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -23,18 +24,22 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.Utils.UpConstants;
+import ua.edu.universityprograms.app.fragments.RestartAppDialog;
 import ua.edu.universityprograms.app.models.User;
 
-public class Settings extends Activity {
+public class Settings extends Activity implements RestartAppDialog.restartAppDialogListener{
 
+    @TextRule(order = 1, minLength = 1, message = "Must enter first name")
     @InjectView(R.id.etFirstName)
     EditText etFName;
+    @TextRule(order = 2, minLength = 1, message = "Must enter last name")
     @InjectView(R.id.etLastName)
     EditText etLName;
-    @Email(order = 1, message = "Must be valid email.")
+    @Email(order = 3, message = "Must be valid email.")
+    @TextRule(order = 4, minLength = 1, message = "Must be a valid email")
     @InjectView(R.id.etEmail)
     EditText etEmail;
-    @TextRule(order = 2, minLength = 8, maxLength = 8, message = "Must be a valid CWID")
+    @TextRule(order = 5, minLength = 8, maxLength = 8, message = "Must be a valid CWID")
     @InjectView(R.id.etCwid)
     EditText etCwid;
     @InjectView(R.id.swTheme)
@@ -85,17 +90,14 @@ public class Settings extends Activity {
         } catch (NullPointerException e) {
             // Do nothing
         }
+        boolean darkTheme = preferences.getInt("theme",android.R.style.Theme_Holo)== android.R.style.Theme_Holo ? true : false;
+        theme.setChecked(darkTheme);
         theme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
-                SharedPreferences.Editor editor = preferences.edit();
-                if(isChecked){
-                    editor.putInt("theme", android.R.style.Theme_Holo);
-                }else{
-                    editor.putInt("theme", android.R.style.Theme_Holo_Light);
-                }
-                editor.commit();
+                RestartAppDialog dialog = new RestartAppDialog();
+                dialog.show(getFragmentManager(), "theme");
             }
         });
     }
@@ -114,9 +116,19 @@ public class Settings extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_save) {
+            etFName.setError(null);
+            etLName.setError(null);
+            etCwid.setError(null);
+            etEmail.setError(null);
             validator.validate();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        dialog.dismiss();
+        theme.setChecked(!theme.isChecked());
     }
 }

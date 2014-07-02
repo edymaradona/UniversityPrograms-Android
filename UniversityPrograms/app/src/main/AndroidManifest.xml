@@ -3,15 +3,17 @@
     package="ua.edu.universityprograms.app" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo">
+        android:theme="@android:style/Theme.Holo" >
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +22,8 @@
         </activity>
         <activity
             android:name=".activities.WhatWeDo"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.WHATWEDO" />
 
@@ -29,7 +32,8 @@
         </activity>
         <activity
             android:name=".activities.WhoWeAre"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.WHOWEARE" />
 
@@ -38,47 +42,63 @@
         </activity>
         <activity
             android:name=".activities.ContactUs"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.TeamMembers"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
-            android:name=".activities.Director"
-            android:label="@string/app_name" >
+            android:name=".activities.Directors"
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.GraduateAssistant"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.EventProgrammer"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.CommunicationTeam"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.Intern"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.Member"
-            android:label="@string/title_activity_member" >
+            android:label="@string/title_activity_member"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.Event"
-            android:label="@string/title_activity_event" >
+            android:label="@string/title_activity_event"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.Settings"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
             android:name=".activities.AddComment"
-            android:label="@string/title_activity_add_comment" >
+            android:label="@string/title_activity_add_comment"
+            android:screenOrientation="sensorPortrait" >
+        </activity>
+        <activity
+            android:screenOrientation="sensorPortrait"
+            android:name=".activities.Director"
+            android:label="@string/title_activity_dir" >
         </activity>
     </application>
 

@@ -75,7 +75,7 @@
         deal about my campus, colleagues and community. As an event programmer I have been presented with opportunities to exercise my leadership
         skills as well as showcase my passion for people. During my time here at the Capstone, it is my goal to leave a legacy and University
         Programs is the place to do just that.\n\nFun Fact: I am one of six girls.</string>
-    <string name="communication1_name">Reginald (Reggie) Allison II</string>
+    <string name="communication1_name">Reginald Allison II</string>
     <string name="communication1_info">Home: Chicago, IL\nMajor: Telecommunication and Film\nYear: Graduate\nPosition: Intern\n\n</string>
     <string name="communication1_about">My Job: Reginald serves as an Intern at University Programs, as well as a Graduate Teaching Assistant and Research Assistant for the Telecommunication and Film department. As an Intern, Reginald has worked in a team environment to plan, organize, and execute a variety of events. Reginald states, "UP has provided me with a great opportunity to further obtain working knowledge and real world experience in, among others things, project management, event coordination, logistics, marketing, and public relations."\n\nFun Fact: In addition to being a fan of Bama athletics, Reginald is also a fan of several professional sporting teams, including the Chicago Bears and Miami Heat.</string>
     <string name="communication2_name">Allison Terrell</string>
@@ -102,5 +102,6 @@
     <string name="title_activity_event">Event</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_add_comment">AddComment</string>
+    <string name="title_activity_dir">Dir</string>
 
 </resources>

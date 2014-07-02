@@ -17,8 +17,8 @@ public class NoCWIDdialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("No CWID");
-        builder.setMessage("Would you like to set your CWID?")
+        builder.setTitle("No information");
+        builder.setMessage("Would you like to set your information?")
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // FIRE ZE MISSILES!
@@ -33,6 +33,7 @@ public class NoCWIDdialog extends DialogFragment {
                         dismiss();
                     }
                 });
+        builder.setIcon(android.R.drawable.ic_delete);
         // Create the AlertDialog object and return it
         return builder.create();
     }

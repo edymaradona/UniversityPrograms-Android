@@ -60,4 +60,19 @@
         android:id="@+id/swTheme"
         android:layout_gravity="center_horizontal" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:id="@+id/alogo"
+            android:alpha=".35"
+            android:layout_gravity="right"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/applogo_35splash"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
 </LinearLayout>

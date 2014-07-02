@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ua.edu.universityprograms.app.Adapters.CommentAdapter;
 import ua.edu.universityprograms.app.Adapters.EventsAdapter;
+import ua.edu.universityprograms.app.Adapters.MyUpAdapter;
 import ua.edu.universityprograms.app.Asyncs.UpComingEventsAsync;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.Utils.UpConstants;
@@ -54,7 +55,7 @@ public class MyUPFragment extends Fragment {
     ListView lvMyUp;
 
     ArrayList<DtoEventBase> attending;
-    EventsAdapter adapter;
+    MyUpAdapter adapter;
     CommentAdapter cAdapter;
 
     public static MyUPFragment fragmentInstance() {
@@ -95,7 +96,7 @@ public class MyUPFragment extends Fragment {
     }
 
     private void setRSVPListview(final ArrayList<DtoEventBase> attending) {
-        adapter = new EventsAdapter(getActivity(), attending);
+        adapter = new MyUpAdapter(getActivity(), attending);
         lvMyUp.setAdapter(adapter);
         lvMyUp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

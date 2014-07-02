@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -11,9 +13,9 @@
         android:paddingBottom="4sp">
 
         <ImageView
-            android:layout_width="75sp"
-            android:layout_height="75sp"
-            android:src="@drawable/alogo1"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:src="@drawable/applogo_35splash"
             android:paddingRight="8sp"
             android:id="@+id/ivMyUp" />
         <TextView

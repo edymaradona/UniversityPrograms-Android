@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.internal.view.SupportMenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ import com.squareup.picasso.Picasso;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
+import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -58,8 +63,14 @@ public class Event extends FragmentActivity {
     int eventID, attend;
     SharedPreferences preferences;
 
+    private final String[] INTENT_FILTER = new String[] {
+            "com.twitter.android",
+            "com.facebook.katana"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
@@ -106,14 +117,14 @@ public class Event extends FragmentActivity {
                 map.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        IntentUtils.goTo(Event.this, intentLocation(dtoEvent.location));
+                        IntentUtils.goTo(Event.this, intentLocation(dtoEvent.location), getFragmentManager());
                     }
                 });
             }
 
             public String intentLocation(DtoLocation loc){
                 String street2 = loc.street2 != null ? loc.street2: "";
-                String temp = loc.name + "+" + loc.street1 + street2 + "+" + loc.city + "+"
+                String temp = loc.street1 + "+" + street2 + "+" + loc.city + "+"
                         + loc.state + "+" + loc.zip;
                 return temp;
             }
@@ -145,11 +156,22 @@ public class Event extends FragmentActivity {
         getActionBar().setTitle(event.eventName);
         getActionBar().setSubtitle(DateUtils.timeUntilLongFormat(event.startDate, event.endDate));
     }
-
+    ShareActionProvider mShareActionProvider;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "This is a message for you");
+        setShareIntent(intent);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    // Call to update the share intent
+    private void setShareIntent(Intent shareIntent) {
+        if (mShareActionProvider != null) {
+            mShareActionProvider.setShareIntent(shareIntent);
+        }
     }
 
     @Override
@@ -158,6 +180,12 @@ public class Event extends FragmentActivity {
             getMenuInflater().inflate(R.menu.event_rsvped, menu);
         }else {
             getMenuInflater().inflate(R.menu.event, menu);
+            MenuItem item = menu.findItem(R.id.menu_item_share);
+            mShareActionProvider = new ShareActionProvider(this);
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, "Share event via");
+            setShareIntent(intent);
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -167,6 +195,7 @@ public class Event extends FragmentActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
         if (id == R.id.action_rsvp) {
             if(u != null){
@@ -198,9 +227,9 @@ public class Event extends FragmentActivity {
                 dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
             }
         }
-        if(id == R.id.action_share){
-            IntentUtils.shareChooser(Event.this);
-        }
+//        if(id == R.id.action_share){
+//            IntentUtils.shareChooser(Event.this);
+//        }
         return super.onOptionsItemSelected(item);
     }
     public void RSVPforEvent(int i, User u){
