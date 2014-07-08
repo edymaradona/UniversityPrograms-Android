@@ -131,4 +131,10 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         dialog.dismiss();
         theme.setChecked(!theme.isChecked());
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
 }

@@ -34,6 +34,7 @@ public class AboutAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tvItem.setText(item);
+
         return convertView;
     }
     static class ViewHolder {

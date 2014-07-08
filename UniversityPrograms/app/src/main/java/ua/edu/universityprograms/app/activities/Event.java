@@ -268,4 +268,10 @@ public class Event extends FragmentActivity {
         };
         rsvp.execute(new DtoUnRsvp(i, u.uCwid));
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
 }

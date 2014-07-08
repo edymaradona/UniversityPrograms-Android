@@ -32,6 +32,7 @@ public class TeamMembers extends Activity {
         setContentView(R.layout.team_members);
         ButterKnife.inject(this);
         ActionBarRefresher();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         initialize();
     }
     public void ActionBarRefresher(){
@@ -65,5 +66,11 @@ public class TeamMembers extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

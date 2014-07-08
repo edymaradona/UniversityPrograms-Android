@@ -18,9 +18,16 @@ public class WhoWeAre extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.whoweare);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         ActionBarRefresher();
     }
     public void ActionBarRefresher(){
         getActionBar().setTitle(R.string.title_whoweare);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

@@ -2,7 +2,6 @@ package ua.edu.universityprograms.app.activities;
 
 import android.app.ActionBar;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -59,8 +58,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setTheme(preferences.getInt("theme", android.R.style.Theme_Holo));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InitFragments();
-
+        if(savedInstanceState==null) {
+            InitFragments();
+            getUpComingEvents();
+        }else{
+            upcomingEvents = (UpComingEventsFragment)getSupportFragmentManager().getFragment(savedInstanceState,"events");
+            aboutUp = (AboutUPFragment)getSupportFragmentManager().getFragment(savedInstanceState,"about");
+            myUp = (MyUPFragment)getSupportFragmentManager().getFragment(savedInstanceState,"my");
+        }
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -99,12 +104,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     public void ActionBarRefresher(){
-        getActionBar().setTitle("University Programs");
+        getActionBar().setTitle("UA Programs");
     }
     @Override
     protected void onResume() {
         super.onResume();
-        getUpComingEventes();
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSupportFragmentManager().putFragment(outState, "events", upcomingEvents);
+        getSupportFragmentManager().putFragment(outState, "about", aboutUp);
+        getSupportFragmentManager().putFragment(outState,"my",myUp);
     }
 
     private void InitFragments() {
@@ -113,7 +126,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         myUp = MyUPFragment.fragmentInstance();
     }
 
-    private void getUpComingEventes(){
+    private void getUpComingEvents(){
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String user = preferences.getString(UpConstants.USER_KEY, "");
         you = new Gson().fromJson(user,User.class);

@@ -29,7 +29,6 @@ public class AboutUPFragment extends Fragment {
 
     AboutAdapter adapter;
 
-    private static final String ARG_SECTION_NUMBER = "";
 
     public static AboutUPFragment fragmentInstance() {
         AboutUPFragment fragment = new AboutUPFragment();

@@ -69,4 +69,9 @@ public class AddComment extends Activity {
         });
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
 }

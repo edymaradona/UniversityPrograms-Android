@@ -17,10 +17,17 @@ public class WhatWeDo extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.whatwedo);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         ActionBarRefresher();
     }
     
     public void ActionBarRefresher(){
         getActionBar().setTitle(R.string.title_whatwedo);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

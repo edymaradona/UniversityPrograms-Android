@@ -105,12 +105,14 @@ public class MyUPFragment extends Fragment {
                 DtoEventBase m = attending.get(pos);
                 intent.putExtra("event", m.eventId);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
             }
         });
     }
 
     public void setComments(final ArrayList<DtoComment> comments) {
         cAdapter = new CommentAdapter(getActivity(), comments);
+
     }
 
     private void setCommentsListView() {
@@ -147,6 +149,7 @@ public class MyUPFragment extends Fragment {
             case R.id.action_my_up_settings:
                 Intent i = new Intent(getActivity(), Settings.class);
                 startActivity(i);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
                 break;
             case R.id.action_add_comment:
                 if (ma != null) {
@@ -162,6 +165,7 @@ public class MyUPFragment extends Fragment {
                         dialog.show(getFragmentManager(), "NoticeDialogFragment");
                     }
                 }
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
                 break;
         }
 
