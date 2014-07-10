@@ -7,6 +7,7 @@ import android.os.Parcelable;
  * Created by vcaciuc on 6/17/2014.
  */
 public class DtoUnRsvp implements Parcelable {
+
     int EventId;
     String cwid;
 
@@ -14,7 +15,6 @@ public class DtoUnRsvp implements Parcelable {
         EventId = eventId;
         this.cwid = cwid;
     }
-
 
     @Override
     public int describeContents() {

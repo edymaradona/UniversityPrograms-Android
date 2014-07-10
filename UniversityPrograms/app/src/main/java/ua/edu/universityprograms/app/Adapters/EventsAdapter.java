@@ -74,6 +74,7 @@ public class EventsAdapter extends ArrayAdapter<DtoEventBase>{
         return convertView;
     }
 
+    // Counts the number of days, hours and minutes from now until the event starts
     private String timeUntil(String start, String end){
         String timeUntil = "";
         DateTime dt = new DateTime();
@@ -104,20 +105,16 @@ public class EventsAdapter extends ArrayAdapter<DtoEventBase>{
     }
 
     static class ViewHolder {
-
         @InjectView(R.id.tvEventName)
         TextView name;
         @InjectView(R.id.tvTimeUntil)
         TextView time;
         @InjectView(R.id.ivEventPic)
         ImageView pic;
-
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
             pic.getLayoutParams().height = width;
             pic.getLayoutParams().width = width;
         }
     }
-
-
 }

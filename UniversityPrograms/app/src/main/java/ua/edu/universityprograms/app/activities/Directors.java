@@ -23,13 +23,11 @@ import ua.edu.universityprograms.app.models.Members;
 public class Directors extends Activity implements AdapterView.OnItemClickListener{
 
     @InjectView(R.id.gvAssist)
-
     GridView assistants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);
@@ -39,20 +37,22 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
         ActionBarRefresher();
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle("Directors");
     }
 
+    // Gets directors picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_2.jpg", res.getString(R.string.dir_name), res.getString(R.string.dir_info), res.getString(R.string.dir_about)));
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_7.jpg", res.getString(R.string.prog_assist_name), res.getString(R.string.prog_assist_info), res.getString(R.string.prog_assist_about)));
-
         return list;
     }
 
+    // Clicking the photo, opens each member personal page
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(Directors.this, Director.class);

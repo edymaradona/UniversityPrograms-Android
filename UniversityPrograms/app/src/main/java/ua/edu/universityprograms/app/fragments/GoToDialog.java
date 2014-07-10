@@ -15,7 +15,6 @@ public class GoToDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("Maps app was not found. Would you like to install it?")
                 .setTitle("Warning");
@@ -28,18 +27,14 @@ public class GoToDialog extends DialogFragment {
                 } catch (android.content.ActivityNotFoundException anfe) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
-
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
+         // User cancelled the dialog
             }
         });
         AlertDialog dialog = builder.create();
-
         return dialog;
     }
-
-
 }

@@ -9,6 +9,9 @@ import org.joda.time.Minutes;
  * Created by vcaciuc on 6/18/2014.
  */
 public class DateUtils {
+
+    // Gets the number of days, hours and minutes until event starts
+    // Checks if the event is in progress and if it ended
     public static String timeUntil(String start, String end){
         String timeUntil = "";
         DateTime dt = new DateTime();
@@ -37,6 +40,8 @@ public class DateUtils {
             return timeUntil;
         }
     }
+
+    // Formats the time until string
     public static String timeUntilLongFormat(String start, String end){
         String timeUntil = "";
         DateTime dt = new DateTime();

@@ -29,10 +29,13 @@ public class Director extends Activity {
     @InjectView(R.id.bCall)
     ImageButton call;
 
+    /**
+     * Sets on click listener for the "Call" button and "Email" button
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         ActionBarRefresher();
         setContentView(R.layout.activity_dir);
@@ -65,6 +68,7 @@ public class Director extends Activity {
         });
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Director");
     }

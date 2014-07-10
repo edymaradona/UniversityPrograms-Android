@@ -28,7 +28,6 @@ public class Member extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         String name = getIntent().getStringExtra("title");
         getActionBar().setTitle(name);
@@ -40,6 +39,4 @@ public class Member extends Activity {
         tvAbout.setText(member.about);
         Picasso.with(this).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).noFade().into(ivProfile);
     }
-
-
 }

@@ -19,6 +19,7 @@ import ua.edu.universityprograms.app.models.DtoComment;
  */
 public class CommentAdapter extends ArrayAdapter<DtoComment> {
 
+    // Sets the layout file
     public CommentAdapter(Context context, ArrayList<DtoComment> items) {
         super(context, R.layout.list_cell_comment, items);
     }
@@ -38,13 +39,12 @@ public class CommentAdapter extends ArrayAdapter<DtoComment> {
         holder.tvComment.setText(item.commentText);
         return convertView;
     }
-    static class ViewHolder {
 
+    static class ViewHolder {
         @InjectView(R.id.tvTitle)
         TextView tvTitle;
         @InjectView(R.id.tvComment)
         TextView tvComment;
-
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
         }

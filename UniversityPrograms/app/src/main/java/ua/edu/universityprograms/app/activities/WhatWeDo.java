@@ -20,11 +20,13 @@ public class WhatWeDo extends Activity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         ActionBarRefresher();
     }
-    
+
+    // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle(R.string.title_whatwedo);
     }
 
+    // Animations for exiting the page
     @Override
     public void finish() {
         super.finish();

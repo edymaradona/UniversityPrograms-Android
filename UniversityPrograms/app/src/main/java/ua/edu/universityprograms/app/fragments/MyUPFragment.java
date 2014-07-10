@@ -53,7 +53,6 @@ public class MyUPFragment extends Fragment {
     Button bcomment;
     @InjectView(R.id.lvMyUp)
     ListView lvMyUp;
-
     ArrayList<DtoEventBase> attending;
     MyUpAdapter adapter;
     CommentAdapter cAdapter;
@@ -63,11 +62,11 @@ public class MyUPFragment extends Fragment {
         return fragment;
     }
 
-
     public MyUPFragment() {
         setHasOptionsMenu(true);
     }
 
+    // Switches between RSVP/unRSVP on click
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.my_up, container, false);
@@ -85,6 +84,7 @@ public class MyUPFragment extends Fragment {
         return rootView;
     }
 
+    // Adds to the list the events you RSVPed for
     public void setRSVPedEvents(final ArrayList<DtoEventBase> dtoEventBases) {
         attending = new ArrayList<DtoEventBase>();
         for (int i = 0; i < dtoEventBases.size(); i++) {
@@ -95,6 +95,8 @@ public class MyUPFragment extends Fragment {
         setRSVPListview(attending);
     }
 
+    // Displays the attending list
+    // Entering animation
     private void setRSVPListview(final ArrayList<DtoEventBase> attending) {
         adapter = new MyUpAdapter(getActivity(), attending);
         lvMyUp.setAdapter(adapter);
@@ -112,7 +114,6 @@ public class MyUPFragment extends Fragment {
 
     public void setComments(final ArrayList<DtoComment> comments) {
         cAdapter = new CommentAdapter(getActivity(), comments);
-
     }
 
     private void setCommentsListView() {
@@ -120,6 +121,7 @@ public class MyUPFragment extends Fragment {
         lvMyUp.setOnItemClickListener(null);
     }
 
+    // Displays user's name and email on top of the page
     @Override
     public void onResume() {
         super.onResume();
@@ -129,9 +131,9 @@ public class MyUPFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
+    // Grabs the user's info from the text edit fields "Settings"
     private void GetUserFromPrefs() {
         MainActivity ma = (MainActivity) getActivity();
         if (ma != null) {
@@ -142,6 +144,8 @@ public class MyUPFragment extends Fragment {
         }
     }
 
+    // Implements on click listener for "Add Comment" and "Settings"
+    // Entering animations for both pages
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         MainActivity ma = (MainActivity) getActivity();

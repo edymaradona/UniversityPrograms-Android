@@ -14,9 +14,7 @@ public class DtoEvent extends DtoEventBase implements android.os.Parcelable {
         this.location = location;
     }
 
-    public DtoEvent() {
-    }
-
+    public DtoEvent() {}
 
     @Override
     public int describeContents() {

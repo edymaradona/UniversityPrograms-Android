@@ -25,10 +25,6 @@ public class ContactUs extends Activity {
     String txtPhn = "2053488404";
     SharedPreferences preferences;
 
-    public void ActionBarRefresher() {
-        getActionBar().setTitle("Contact Us");
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -48,6 +44,12 @@ public class ContactUs extends Activity {
         });
     }
 
+    // Sets the Title for this page
+    public void ActionBarRefresher() {
+        getActionBar().setTitle("Contact Us");
+    }
+
+    // Animations for exiting the page
     @Override
     public void finish() {
         super.finish();

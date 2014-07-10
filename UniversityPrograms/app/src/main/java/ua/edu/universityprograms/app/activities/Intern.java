@@ -28,7 +28,6 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);
@@ -38,10 +37,12 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
         ActionBarRefresher();
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Intern");
     }
 
+    // Gets intern's picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
@@ -51,7 +52,7 @@ public class Intern extends Activity implements AdapterView.OnItemClickListener{
         return list;
     }
 
-
+    // Clicking the photo, opens each member personal page
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(Intern.this, Member.class);

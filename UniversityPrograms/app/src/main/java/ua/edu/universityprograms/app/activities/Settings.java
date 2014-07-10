@@ -44,14 +44,12 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
     EditText etCwid;
     @InjectView(R.id.swTheme)
     Switch theme;
-
     Validator validator;
     SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.inject(this);
@@ -65,7 +63,6 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
                 editor.commit();
                 Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onValidationFailed(View failedView, Rule<?> failedRule) {
                 String message = failedRule.getFailureMessage();
@@ -79,7 +76,6 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
             }
         });
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         String user = preferences.getString(UpConstants.USER_KEY, "");
         User you = new Gson().fromJson(user, User.class);
         try {
@@ -102,18 +98,18 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         });
     }
 
+    // Inflate the menu; this adds items to the action bar if it is present.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
     }
 
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_save) {
             etFName.setError(null);
@@ -132,6 +128,7 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         theme.setChecked(!theme.isChecked());
     }
 
+    // Animations for exiting the page
     @Override
     public void finish() {
         super.finish();

@@ -28,7 +28,6 @@ public class CommunicationTeam extends Activity implements AdapterView.OnItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);
@@ -38,21 +37,22 @@ public class CommunicationTeam extends Activity implements AdapterView.OnItemCli
         ActionBarRefresher();
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Communication Team");
     }
 
+    // Gets communication team picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
         Resources res = getResources();
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_16.jpg", res.getString(R.string.communication1_name), res.getString(R.string.communication1_info), res.getString(R.string.communication1_about)));
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_11.jpg", res.getString(R.string.communication2_name), res.getString(R.string.communication2_info), res.getString(R.string.communication2_about)));
-
         return list;
     }
 
-
+    // Clicking the photo, opens each member personal page
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(CommunicationTeam.this, Member.class);

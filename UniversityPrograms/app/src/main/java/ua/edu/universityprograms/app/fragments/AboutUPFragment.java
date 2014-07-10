@@ -26,9 +26,7 @@ public class AboutUPFragment extends Fragment {
     private String ABOUT_UP_TITLES[] = {"What We Do", "Who We Are", "Team Members", "Contact Us"};
     @InjectView(R.id.lvAbout)
     ListView lvAbout;
-
     AboutAdapter adapter;
-
 
     public static AboutUPFragment fragmentInstance() {
         AboutUPFragment fragment = new AboutUPFragment();
@@ -37,17 +35,16 @@ public class AboutUPFragment extends Fragment {
         return fragment;
     }
 
-    public AboutUPFragment() {
-    }
+    public AboutUPFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.about_up, container, false);
         ButterKnife.inject(this, rootView);
         return rootView;
     }
 
+    // Implements a click listener
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

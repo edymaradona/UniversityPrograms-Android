@@ -21,13 +21,11 @@ public class TeamMembers extends Activity {
             "Communication Team", "Intern"};
     @InjectView(R.id.lvAbout)
     ListView lvMembers;
-
     AboutAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team_members);
         ButterKnife.inject(this);
@@ -35,10 +33,13 @@ public class TeamMembers extends Activity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         initialize();
     }
+
+    // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle("Team Members");
     }
 
+    // On click listener for member list
     public void initialize(){
         adapter = new AboutAdapter(TeamMembers.this, categories);
         lvMembers.setAdapter(adapter);
@@ -68,6 +69,7 @@ public class TeamMembers extends Activity {
         });
     }
 
+    // Animations for exiting the page
     @Override
     public void finish() {
         super.finish();

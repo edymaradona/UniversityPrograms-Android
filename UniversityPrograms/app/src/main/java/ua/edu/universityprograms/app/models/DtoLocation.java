@@ -20,8 +20,6 @@ public class DtoLocation implements Parcelable {
         this.zip = zip;
     }
 
-
-
     @Override
     public int describeContents() {
         return 0;

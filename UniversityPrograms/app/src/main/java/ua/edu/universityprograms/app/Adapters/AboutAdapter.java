@@ -18,6 +18,7 @@ import ua.edu.universityprograms.app.R;
  */
 public class AboutAdapter extends ArrayAdapter<String> {
 
+    // Sets the layout file
     public AboutAdapter(Context context, String[] items) {
         super(context, R.layout.list_cell_about, items);
     }
@@ -34,14 +35,12 @@ public class AboutAdapter extends ArrayAdapter<String> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tvItem.setText(item);
-
         return convertView;
     }
-    static class ViewHolder {
 
+    static class ViewHolder {
         @InjectView(R.id.tvItem)
         TextView tvItem;
-
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
         }

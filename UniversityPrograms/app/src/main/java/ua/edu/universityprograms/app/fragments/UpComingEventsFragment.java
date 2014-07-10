@@ -30,14 +30,15 @@ import ua.edu.universityprograms.app.models.DtoEventBase;
  * A placeholder fragment containing a simple view.
  */
 public class UpComingEventsFragment extends Fragment {
+
     GridView grid;
     EventsAdapter adapter;
-
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
+
     public static UpComingEventsFragment fragmentInstance() {
         UpComingEventsFragment fragment = new UpComingEventsFragment();
         Bundle args = new Bundle();
@@ -46,22 +47,23 @@ public class UpComingEventsFragment extends Fragment {
     }
 
     public UpComingEventsFragment() {
-
     }
 
+    // Implements a click listener which opens the event
+    // Entering the event animation
     public void setUpcomingEventsList(final ArrayList<DtoEventBase> dtoEventBases) {
         adapter = new EventsAdapter(getActivity(), dtoEventBases);
-            grid.setAdapter(adapter);
-            grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-                    Intent intent = new Intent(getActivity(), Event.class);
-                    DtoEventBase m = dtoEventBases.get(pos);
-                    intent.putExtra("event", m.eventId);
-                    startActivity(intent);
-                    getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
-                }
-            });
+        grid.setAdapter(adapter);
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                Intent intent = new Intent(getActivity(), Event.class);
+                DtoEventBase m = dtoEventBases.get(pos);
+                intent.putExtra("event", m.eventId);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
+            }
+        });
     }
 
     @Override

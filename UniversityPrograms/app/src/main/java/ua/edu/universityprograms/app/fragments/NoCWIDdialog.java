@@ -13,6 +13,8 @@ import ua.edu.universityprograms.app.activities.Settings;
  * Created by vcaciuc on 6/17/2014.
  */
 public class NoCWIDdialog extends DialogFragment {
+
+    // Warning for not entering the CWID
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction

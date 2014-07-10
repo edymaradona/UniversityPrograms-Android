@@ -24,6 +24,7 @@ public class RestartAppDialog extends DialogFragment {
         public void onDialogNegativeClick(DialogFragment dialog);
 
     }
+
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
     @Override
     public void onAttach(Activity activity) {
@@ -42,7 +43,6 @@ public class RestartAppDialog extends DialogFragment {
     restartAppDialogListener mListener;
     SharedPreferences pref;
 
-
     public static RestartAppDialog fragmentInstance() {
         RestartAppDialog fragment = new RestartAppDialog();
         Bundle args = new Bundle();
@@ -50,6 +50,7 @@ public class RestartAppDialog extends DialogFragment {
         return fragment;
     }
 
+    // Warning asking the user to restart the app for changing the theme
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -76,7 +77,6 @@ public class RestartAppDialog extends DialogFragment {
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User cancelled the dialog
-
             }
         });
         AlertDialog dialog = builder.create();

@@ -28,8 +28,8 @@ public class IntentUtils {
         v.startActivity(Intent.createChooser(share, "Share event via"));
     }
 
+    // Opens the Map app and sets the event address as destination
     public static void goTo(Context v, String address, FragmentManager fm){
-
         try {
             Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                     Uri.parse("google.navigation:q=" + address));
@@ -46,7 +46,6 @@ public class IntentUtils {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "up");
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "text");
-
         PackageManager pm = v.getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
         for (final ResolveInfo app : activityList)
@@ -69,7 +68,6 @@ public class IntentUtils {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "String");
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Sting1");
-
         PackageManager pm = v.getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
         for (final ResolveInfo app : activityList)
