@@ -1,6 +1,7 @@
 package ua.edu.universityprograms.app.activities;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -22,13 +23,14 @@ import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.fragments.AboutUPFragment;
 import ua.edu.universityprograms.app.fragments.MyUPFragment;
+import ua.edu.universityprograms.app.fragments.NoCWIDdialog;
 import ua.edu.universityprograms.app.fragments.UpComingEventsFragment;
 import ua.edu.universityprograms.app.models.DtoComment;
 import ua.edu.universityprograms.app.models.DtoEventBase;
 import ua.edu.universityprograms.app.models.User;
 
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener ,NoCWIDdialog.noCWID {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -94,13 +96,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             actionBar.addTab(
                     actionBar.newTab()
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
-                            .setTabListener(this));
+                            .setTabListener(this)
+            );
         }
         ActionBarRefresher();
     }
 
     // Sets the Title for this page
-    public void ActionBarRefresher(){
+    public void ActionBarRefresher() {
         getActionBar().setTitle("UA Programs");
     }
 
@@ -118,29 +121,35 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         myUp = MyUPFragment.fragmentInstance();
     }
 
-    private void getUpComingEventsAndUserComments(){
+    private void getUpComingEventsAndUserComments() {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String user = preferences.getString(UpConstants.USER_KEY, "");
-        you = new Gson().fromJson(user,User.class);
+        you = new Gson().fromJson(user, User.class);
         String cwid = "";
-        if(you != null){
-            if(you.uCwid != null){
+        if (you != null) {
+            if (you.uCwid != null) {
                 cwid = you.uCwid;
             }
         }
-        UpComingEventsAsync ucea = new UpComingEventsAsync(this, cwid){
+        UpComingEventsAsync ucea = new UpComingEventsAsync(this, cwid) {
             @Override
-            protected void onPostExecute(final ArrayList<DtoEventBase> dtoEventBases) {
+            protected void onPostExecute(ArrayList<DtoEventBase> dtoEventBases) {
                 super.onPostExecute(dtoEventBases);
-                    upcomingEvents.setUpcomingEventsList(dtoEventBases);
-                    myUp.setRSVPedEvents(dtoEventBases);
+                if (dtoEventBases == null) {
+                    dtoEventBases = new ArrayList<DtoEventBase>();
+                }
+                upcomingEvents.setUpcomingEventsList(dtoEventBases);
+                myUp.setRSVPedEvents(dtoEventBases);
             }
         };
         ucea.execute("");
-        GetCommentAsync getComments = new GetCommentAsync(this, cwid){
+        GetCommentAsync getComments = new GetCommentAsync(this, cwid) {
             @Override
             protected void onPostExecute(ArrayList<DtoComment> dtoComments) {
                 super.onPostExecute(dtoComments);
+                if (dtoComments == null) {
+                    dtoComments = new ArrayList<DtoComment>();
+                }
                 myUp.setComments(dtoComments);
             }
         };
@@ -161,6 +170,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabReselected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
 
+    }
+    // Used with the NoCwid Dialog
+    @Override
+    public void PositiveButton() {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
     /**

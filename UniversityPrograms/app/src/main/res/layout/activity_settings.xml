@@ -55,7 +55,8 @@
 
     <Switch
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
+        android:layout_marginLeft="5sp"
         android:text="Dark Mode"
         android:checked="true"
         android:id="@+id/swTheme"

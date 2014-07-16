@@ -1,6 +1,7 @@
 package ua.edu.universityprograms.app.Adapters;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class CommentAdapter extends ArrayAdapter<DtoComment> {
         holder.tvComment.setText(item.commentText);
         return convertView;
     }
+
     static class ViewHolder {
 
         @InjectView(R.id.tvTitle)
