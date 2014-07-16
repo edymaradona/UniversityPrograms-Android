@@ -28,8 +28,8 @@ public class IntentUtils {
         v.startActivity(Intent.createChooser(share, "Share event via"));
     }
 
+    // Opens the Map app and sets the event address as destination
     public static void goTo(Context v, String address, FragmentManager fm){
-
         try {
             Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                     Uri.parse("google.navigation:q=" + address));

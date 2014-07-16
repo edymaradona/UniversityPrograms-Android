@@ -18,6 +18,7 @@ import ua.edu.universityprograms.app.R;
  */
 public class AboutAdapter extends ArrayAdapter<String> {
 
+    // Sets the layout file
     public AboutAdapter(Context context, String[] items) {
         super(context, R.layout.list_cell_about, items);
     }

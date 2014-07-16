@@ -28,10 +28,10 @@ public class Member extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         String name = getIntent().getStringExtra("title");
         getActionBar().setTitle(name);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         setContentView(R.layout.activity_member);
         ButterKnife.inject(this);
         Members member = getIntent().getParcelableExtra("memb");
@@ -41,5 +41,10 @@ public class Member extends Activity {
         Picasso.with(this).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).noFade().into(ivProfile);
     }
 
-
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
 }

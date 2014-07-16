@@ -1,5 +1,6 @@
 package ua.edu.universityprograms.app.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -13,6 +14,20 @@ import ua.edu.universityprograms.app.activities.Settings;
  * Created by vcaciuc on 6/17/2014.
  */
 public class NoCWIDdialog extends DialogFragment {
+
+    noCWID mCallbacks;
+
+    public static interface noCWID{
+        public void PositiveButton();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mCallbacks = (noCWID) activity;
+    }
+
+    // Warning for not entering the CWID
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -22,9 +37,9 @@ public class NoCWIDdialog extends DialogFragment {
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // FIRE ZE MISSILES!
-                        Intent intent = new Intent(getActivity(), Settings.class);
-                        startActivity(intent);
+                        mCallbacks.PositiveButton();
                         dismiss();
+
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

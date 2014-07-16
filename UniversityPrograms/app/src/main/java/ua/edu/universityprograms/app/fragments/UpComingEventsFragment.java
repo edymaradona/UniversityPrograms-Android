@@ -46,7 +46,8 @@ public class UpComingEventsFragment extends Fragment {
 
     }
 
-
+    // Implements a click listener which opens the event
+    // Entering the event animation
     public void setUpcomingEventsList(final ArrayList<DtoEventBase> dtoEventBases){
         adapter = new EventsAdapter(getActivity(), dtoEventBases);
         list.setAdapter(adapter);
@@ -57,6 +58,7 @@ public class UpComingEventsFragment extends Fragment {
                 DtoEventBase m = dtoEventBases.get(pos);
                 intent.putExtra("event", m.eventId);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
             }
         });
     }

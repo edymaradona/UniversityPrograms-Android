@@ -31,7 +31,7 @@ public class AddComment extends Activity {
     Button bSend;
     User u;
 
-
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Add Comment");
     }
@@ -69,4 +69,10 @@ public class AddComment extends Activity {
         });
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        // Animations for exiting the page
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
 }

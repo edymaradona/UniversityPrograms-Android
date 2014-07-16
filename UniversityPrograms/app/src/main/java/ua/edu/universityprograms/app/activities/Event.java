@@ -43,7 +43,7 @@ import ua.edu.universityprograms.app.models.DtoRSVP;
 import ua.edu.universityprograms.app.models.DtoUnRsvp;
 import ua.edu.universityprograms.app.models.User;
 
-public class Event extends FragmentActivity {
+public class Event extends FragmentActivity implements NoCWIDdialog.noCWID {
     @InjectView(R.id.tvEventAttending)
     TextView attending;
     @InjectView(R.id.tvTimeUntil)
@@ -63,10 +63,13 @@ public class Event extends FragmentActivity {
     int eventID, attend;
     SharedPreferences preferences;
 
+    // Customize the share event button
     private final String[] INTENT_FILTER = new String[] {
             "com.twitter.android",
             "com.facebook.katana"
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +145,7 @@ public class Event extends FragmentActivity {
         gea.execute("");
     }
 
+    // Setting the "attending" status
     private String Attending(int a){
         String att;
         if(a == 0){
@@ -152,10 +156,13 @@ public class Event extends FragmentActivity {
         return att;
     }
 
+    // Sets the Title for this page
     private void ActionBarRefresher(DtoEvent event){
         getActionBar().setTitle(event.eventName);
         getActionBar().setSubtitle(DateUtils.timeUntilLongFormat(event.startDate, event.endDate));
     }
+
+    // Inflate the menu; this adds items to the action bar if it is present.
     ShareActionProvider mShareActionProvider;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -191,6 +198,13 @@ public class Event extends FragmentActivity {
     }
 
     @Override
+    public void PositiveButton() {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -203,6 +217,7 @@ public class Event extends FragmentActivity {
                     RSVPforEvent(eventID, u);
                 }else{
                     DialogFragment dialog = new NoCWIDdialog();
+
                     dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
                 }
             }
@@ -227,11 +242,14 @@ public class Event extends FragmentActivity {
                 dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
             }
         }
-//        if(id == R.id.action_share){
-//            IntentUtils.shareChooser(Event.this);
-//        }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * RSVPforEvent displays a message when "RSVP" button clicked and increases the "attending" number
+     * @param i
+     * @param u
+     */
     public void RSVPforEvent(int i, User u){
 
         RsvpAsync rsvp = new RsvpAsync(Event.this){
@@ -250,8 +268,13 @@ public class Event extends FragmentActivity {
         };
         rsvp.execute(new DtoRSVP(i, u));
     }
-    public void unRSVP_forEvent(int i, User u){
 
+    /**
+     * unRSVPforEvent displays a message when "unRSVP" button clicked and decreases the "attending" number
+     * @param i
+     * @param u
+     */
+    public void unRSVP_forEvent(int i, User u){
         unRSVPAsync rsvp = new unRSVPAsync(Event.this){
             @Override
             protected void onPostExecute(Boolean aBoolean) {
@@ -268,4 +291,13 @@ public class Event extends FragmentActivity {
         };
         rsvp.execute(new DtoUnRsvp(i, u.uCwid));
     }
+
+    @Override
+    public void finish() {
+        // Animations for exiting the page
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
+    }
+
+
 }

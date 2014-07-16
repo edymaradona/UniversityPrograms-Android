@@ -39,6 +39,8 @@ public class MyUpAdapter extends ArrayAdapter<DtoEventBase> {
         mcontext = context;
     }
 
+    // Displays the start and end of the event
+    // Loads picture
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         DtoEventBase event = getItem(position);

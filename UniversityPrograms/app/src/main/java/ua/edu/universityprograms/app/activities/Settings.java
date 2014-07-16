@@ -102,18 +102,18 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         });
     }
 
+    // Inflate the menu; this adds items to the action bar if it is present.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
     }
 
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_save) {
             etFName.setError(null);
@@ -130,5 +130,12 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
     public void onDialogNegativeClick(DialogFragment dialog) {
         dialog.dismiss();
         theme.setChecked(!theme.isChecked());
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

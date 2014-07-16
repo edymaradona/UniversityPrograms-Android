@@ -32,12 +32,16 @@ public class TeamMembers extends Activity {
         setContentView(R.layout.team_members);
         ButterKnife.inject(this);
         ActionBarRefresher();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         initialize();
     }
+
+    // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle("Team Members");
     }
 
+    // On click listener for member list
     public void initialize(){
         adapter = new AboutAdapter(TeamMembers.this, categories);
         lvMembers.setAdapter(adapter);
@@ -65,5 +69,12 @@ public class TeamMembers extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

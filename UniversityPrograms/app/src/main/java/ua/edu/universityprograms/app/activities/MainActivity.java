@@ -61,6 +61,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setContentView(R.layout.activity_main);
         InitFragments();
 
+
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -98,22 +99,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         ActionBarRefresher();
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher(){
-        getActionBar().setTitle("University Programs");
+        getActionBar().setTitle("UA Programs");
     }
+
+    // Gets user
     @Override
     protected void onResume() {
         super.onResume();
-        getUpComingEventes();
+        getUpComingEventsAndUserComments();
     }
 
+    // Initializes fragments
     private void InitFragments() {
         upcomingEvents = UpComingEventsFragment.fragmentInstance();
         aboutUp = AboutUPFragment.fragmentInstance();
         myUp = MyUPFragment.fragmentInstance();
     }
 
-    private void getUpComingEventes(){
+    private void getUpComingEventsAndUserComments(){
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String user = preferences.getString(UpConstants.USER_KEY, "");
         you = new Gson().fromJson(user,User.class);
@@ -123,7 +128,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 cwid = you.uCwid;
             }
         }
-
         UpComingEventsAsync ucea = new UpComingEventsAsync(this, cwid){
             @Override
             protected void onPostExecute(final ArrayList<DtoEventBase> dtoEventBases) {
@@ -133,7 +137,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
         };
         ucea.execute("");
-
         GetCommentAsync getComments = new GetCommentAsync(this, cwid){
             @Override
             protected void onPostExecute(ArrayList<DtoComment> dtoComments) {
@@ -144,10 +147,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         getComments.execute();
     }
 
+    // When the given tab is selected, switch to the corresponding page in the ViewPager.
     @Override
     public void onTabSelected(ActionBar.Tab tab, android.app.FragmentTransaction fragmentTransaction) {
-        // When the given tab is selected, switch to the corresponding page in
-        // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
     }
 

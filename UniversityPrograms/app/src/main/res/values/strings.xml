@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">UniversityPrograms</string>
+    <string name="app_name">UA Programs</string>
+    <string name="app_title_bar">UA Programs</string>
     <string name="title_section1">Events</string>
     <string name="title_section2">About UP</string>
     <string name="title_section3">My UP</string>

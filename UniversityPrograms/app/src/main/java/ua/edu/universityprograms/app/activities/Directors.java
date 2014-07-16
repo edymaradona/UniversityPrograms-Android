@@ -29,7 +29,6 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);
@@ -37,12 +36,15 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
         assistants.setAdapter(adapter);
         assistants.setOnItemClickListener(this);
         ActionBarRefresher();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle("Directors");
     }
 
+    // Gets directors picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
@@ -53,11 +55,19 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
         return list;
     }
 
+    // Clicking the photo, opens each member personal page
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(Directors.this, Director.class);
         intent.putExtra("memb",list.get(i));
         intent.putExtra("position",i);
         startActivity(intent);
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

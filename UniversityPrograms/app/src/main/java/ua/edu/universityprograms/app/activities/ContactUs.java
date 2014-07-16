@@ -25,6 +25,7 @@ public class ContactUs extends Activity {
     String txtPhn = "2053488404";
     SharedPreferences preferences;
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Contact Us");
     }
@@ -37,7 +38,7 @@ public class ContactUs extends Activity {
         ActionBarRefresher();
         setContentView(R.layout.contact_us);
         ButterKnife.inject(this);
-
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,5 +47,12 @@ public class ContactUs extends Activity {
                 startActivity(callIntent);
             }
         });
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

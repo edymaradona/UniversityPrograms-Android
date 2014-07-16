@@ -50,6 +50,7 @@ public class RestartAppDialog extends DialogFragment {
         return fragment;
     }
 
+    // Warning asking the user to restart the app for changing the theme
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());

@@ -19,6 +19,7 @@ import ua.edu.universityprograms.app.models.DtoComment;
  */
 public class CommentAdapter extends ArrayAdapter<DtoComment> {
 
+    // Sets the layout file
     public CommentAdapter(Context context, ArrayList<DtoComment> items) {
         super(context, R.layout.list_cell_comment, items);
     }

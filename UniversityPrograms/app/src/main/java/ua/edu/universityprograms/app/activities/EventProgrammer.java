@@ -35,12 +35,15 @@ public class EventProgrammer  extends Activity implements AdapterView.OnItemClic
         assistants.setAdapter(adapter);
         assistants.setOnItemClickListener(this);
         ActionBarRefresher();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Event Programmers");
     }
 
+    // Gets event programmer's picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
     public ArrayList<Members> getAssistants(){
         list = new ArrayList<Members>();
@@ -49,16 +52,22 @@ public class EventProgrammer  extends Activity implements AdapterView.OnItemClic
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_6.jpg", res.getString(R.string.event_prog2_name), res.getString(R.string.event_prog2_info), res.getString(R.string.event_prog2_about)));
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew.jpg", res.getString(R.string.event_prog3_name), res.getString(R.string.event_prog3_info), res.getString(R.string.event_prog3_about)));
         list.add(new Members("http://www.google.com", res.getString(R.string.event_prog4_name), res.getString(R.string.event_prog4_info), res.getString(R.string.event_prog4_about)));
-
         return list;
     }
 
-
+    // Clicking the photo, opens each member personal page
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(EventProgrammer.this, Member.class);
         intent.putExtra("memb",list.get(i));
         intent.putExtra("title","Event Programmer");
         startActivity(intent);
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

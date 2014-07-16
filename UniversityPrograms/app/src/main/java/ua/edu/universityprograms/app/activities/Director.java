@@ -29,12 +29,16 @@ public class Director extends Activity {
     @InjectView(R.id.bCall)
     ImageButton call;
 
+    /**
+     * Sets on click listener for the "Call" button and "Email" button
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         ActionBarRefresher();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.abc_fade_out);
         setContentView(R.layout.activity_dir);
         ButterKnife.inject(this);
         Members member = getIntent().getParcelableExtra("memb");
@@ -65,7 +69,15 @@ public class Director extends Activity {
         });
     }
 
+    // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Director");
+    }
+
+    // Animations for exiting the page
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

@@ -46,6 +46,7 @@ public class MembersAdapter extends ArrayAdapter<Members> {
         error = new BitmapDrawable(mcontext.getResources(), Bitmap.createScaledBitmap(bit, width / 2, width / 2, true));
     }
 
+    // Loads the image and sets the text
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Members member = getItem(position);
@@ -58,24 +59,22 @@ public class MembersAdapter extends ArrayAdapter<Members> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tvName.setText(member.name);
-
         Picasso.with(mcontext).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).resize(width / 2, width / 2).centerCrop().into(holder.ivProfile);
         return convertView;
     }
 
     static class ViewHolder {
-
         @InjectView(R.id.tvCellName)
         TextView tvName;
         @InjectView(R.id.ivProfile)
         ImageView ivProfile;
-
-
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
             ivProfile.getLayoutParams().height = width / 2;
             ivProfile.getLayoutParams().width = width / 2;
         }
     }
+
+
 }
 
