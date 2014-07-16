@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/card_bg_r4">
+    android:layout_margin="8dp"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:text="New Text"
-        android:textColor="@color/black"
-        android:id="@+id/tvTitle" />
+        android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/tvComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginLeft="20sp"
-        android:text="New Text"
-        android:id="@+id/tvComment" />
+        android:text="New Text" />
 </LinearLayout>

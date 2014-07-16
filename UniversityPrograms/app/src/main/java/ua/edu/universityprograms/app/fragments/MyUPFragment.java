@@ -72,6 +72,7 @@ public class MyUPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.my_up, container, false);
         ButterKnife.inject(this, rootView);
+        this.lvMyUp.setEmptyView(rootView.findViewById(android.R.id.empty));
         brsvp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setRSVPListview(attending);
@@ -114,8 +115,13 @@ public class MyUPFragment extends Fragment {
     }
 
     private void setCommentsListView() {
-        lvMyUp.setAdapter(cAdapter);
-        lvMyUp.setOnItemClickListener(null);
+        try {
+            lvMyUp.setAdapter(cAdapter);
+            lvMyUp.setOnItemClickListener(null);
+        } catch (NullPointerException e) {
+            //There are no comments and the cAdapter returns null ( don't do anything )
+        }
+
     }
 
     @Override
@@ -124,7 +130,6 @@ public class MyUPFragment extends Fragment {
         GetUserFromPrefs();
 
 
-        
     }
 
     @Override
