@@ -1,8 +1,16 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
+    <style name="lightAppTheme" parent="android:Theme.Holo.Light">
+        <item name="button_theme">@drawable/my_up_tabs_background_light</item>
+        <item name="send_comment_button">@color/superLightGrey</item>
     </style>
+
+    <style name="darkAppTheme" parent="android:Theme.Holo">
+        <item name="button_theme">@drawable/my_up_tabs_background_dark</item>
+        <item name="send_comment_button">@color/superDarkGrey</item>
+    </style>
+
+
 
 </resources>

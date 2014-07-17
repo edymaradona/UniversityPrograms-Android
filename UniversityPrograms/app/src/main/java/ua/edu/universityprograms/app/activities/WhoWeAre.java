@@ -10,7 +10,7 @@ import ua.edu.universityprograms.app.R;
 /**
  * Created by vcaciuc on 6/3/2014.
  */
-public class WhoWeAre extends Activity {
+public class WhoWeAre extends Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,5 @@ public class WhoWeAre extends Activity {
     // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle(R.string.title_whoweare);
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

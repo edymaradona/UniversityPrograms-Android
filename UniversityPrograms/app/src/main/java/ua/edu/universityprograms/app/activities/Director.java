@@ -17,7 +17,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.models.Members;
 
-public class Director extends Activity {
+public class Director extends Base {
     @InjectView(R.id.tvMemberName)
     TextView tvName;
     @InjectView(R.id.tvMemberInfo)
@@ -72,12 +72,5 @@ public class Director extends Activity {
     // Sets the Title for this page
     public void ActionBarRefresher() {
         getActionBar().setTitle("Director");
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

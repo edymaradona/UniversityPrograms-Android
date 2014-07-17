@@ -18,7 +18,7 @@
         android:layout_marginBottom="10dp"
         android:padding="2sp"
         android:textColor="@color/black"
-        android:background="@color/lightgrey"
+        android:background="@color/superLightGrey"
         android:id="@+id/etTitle"/>
     <TextView
         android:layout_width="wrap_content"
@@ -32,13 +32,13 @@
         android:padding="2sp"
         android:gravity="start"
         android:textColor="@color/black"
-        android:background="@color/lightgrey"
+        android:background="@color/superLightGrey"
         android:id="@+id/etComment"/>
     <Button
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:text="Send Comment"
-        android:background="@color/darkgrey"
+        android:background="?attr/send_comment_button"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
         android:id="@+id/bSendComment"/>

@@ -20,7 +20,7 @@ import ua.edu.universityprograms.app.models.Members;
 /**
  * Created by vcaciuc on 6/4/2014.
  */
-public class Directors extends Activity implements AdapterView.OnItemClickListener{
+public class Directors extends Base implements AdapterView.OnItemClickListener{
 
     @InjectView(R.id.gvAssist)
     GridView assistants;
@@ -60,12 +60,5 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
         intent.putExtra("memb",list.get(i));
         intent.putExtra("position",i);
         startActivity(intent);
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

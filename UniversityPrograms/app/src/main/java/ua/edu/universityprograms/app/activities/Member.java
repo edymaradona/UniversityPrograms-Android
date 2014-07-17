@@ -14,7 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.models.Members;
 
-public class Member extends Activity {
+public class Member extends Base {
 
     @InjectView(R.id.tvMemberName)
     TextView tvName;
@@ -41,10 +41,5 @@ public class Member extends Activity {
         Picasso.with(this).load(member.url).placeholder(R.drawable.applogo_35splash).error(R.drawable.applogo_35splash).noFade().into(ivProfile);
     }
 
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
-    }
+
 }

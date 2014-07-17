@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button tab on My_Up Fragment -->
+    <attr name="button_theme" format = "reference"/>
+    <attr name="send_comment_button" format = "reference"/>↑
+
+</resources>

@@ -16,7 +16,7 @@ import ua.edu.universityprograms.app.R;
 /**
  * Created by vcaciuc on 6/4/2014.
  */
-public class TeamMembers extends Activity {
+public class TeamMembers extends Base {
     private String categories[] = {"Director", "Graduate Assistant", "Event Programmer",
             "Communication Team", "Intern"};
     @InjectView(R.id.lvAbout)
@@ -67,12 +67,5 @@ public class TeamMembers extends Activity {
                 startActivity(intent);
             }
         });
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

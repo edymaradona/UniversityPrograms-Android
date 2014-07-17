@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 
 import java.util.prefs.Preferences;
 
+import ua.edu.universityprograms.app.R;
 import ua.edu.universityprograms.app.activities.MainActivity;
 
 /**
@@ -54,7 +55,7 @@ public class RestartAppDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        final int theme = pref.getInt("theme", android.R.style.Theme_Holo);
+        final int theme = pref.getInt("theme",R.style.darkAppTheme);
         final SharedPreferences.Editor editor = pref.edit();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("In order to change the theme, the app needs to be restarted. Would you like to restart the app?")
@@ -62,10 +63,10 @@ public class RestartAppDialog extends DialogFragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked OK button
-                if(theme == android.R.style.Theme_Holo){
-                    editor.putInt("theme", android.R.style.Theme_Holo_Light);
+                if(theme == R.style.darkAppTheme){
+                    editor.putInt("theme",R.style.lightAppTheme);
                 }else{
-                    editor.putInt("theme", android.R.style.Theme_Holo);
+                    editor.putInt("theme", R.style.darkAppTheme);
                 }
                 editor.commit();
                 Intent i = new Intent(getActivity(),MainActivity.class);

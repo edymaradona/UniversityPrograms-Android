@@ -43,7 +43,7 @@ import ua.edu.universityprograms.app.models.DtoRSVP;
 import ua.edu.universityprograms.app.models.DtoUnRsvp;
 import ua.edu.universityprograms.app.models.User;
 
-public class Event extends FragmentActivity implements NoCWIDdialog.noCWID {
+public class Event extends Base implements NoCWIDdialog.noCWID {
     @InjectView(R.id.tvEventAttending)
     TextView attending;
     @InjectView(R.id.tvTimeUntil)
@@ -291,13 +291,4 @@ public class Event extends FragmentActivity implements NoCWIDdialog.noCWID {
         };
         rsvp.execute(new DtoUnRsvp(i, u.uCwid));
     }
-
-    @Override
-    public void finish() {
-        // Animations for exiting the page
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
-    }
-
-
 }

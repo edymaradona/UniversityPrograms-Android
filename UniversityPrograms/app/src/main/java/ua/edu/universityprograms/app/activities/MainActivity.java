@@ -58,7 +58,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setTheme(preferences.getInt("theme", android.R.style.Theme_Holo));
+        setTheme(preferences.getInt("theme", R.style.darkAppTheme));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitFragments();

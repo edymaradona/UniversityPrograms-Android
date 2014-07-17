@@ -27,7 +27,7 @@ import ua.edu.universityprograms.app.Utils.UpConstants;
 import ua.edu.universityprograms.app.fragments.RestartAppDialog;
 import ua.edu.universityprograms.app.models.User;
 
-public class Settings extends Activity implements RestartAppDialog.restartAppDialogListener{
+public class Settings extends Base implements RestartAppDialog.restartAppDialogListener{
 
     @TextRule(order = 1, minLength = 1, message = "Must enter first name")
     @InjectView(R.id.etFirstName)
@@ -49,7 +49,7 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", R.style.darkAppTheme));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.inject(this);
@@ -86,7 +86,7 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
         } catch (NullPointerException e) {
             // Do nothing
         }
-        boolean darkTheme = preferences.getInt("theme",android.R.style.Theme_Holo)== android.R.style.Theme_Holo ? true : false;
+        boolean darkTheme = preferences.getInt("theme",R.style.darkAppTheme)== R.style.darkAppTheme ? true : false;
         theme.setChecked(darkTheme);
         theme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -119,6 +119,7 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
             validator.validate();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -126,12 +127,5 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
     public void onDialogNegativeClick(DialogFragment dialog) {
         dialog.dismiss();
         theme.setChecked(!theme.isChecked());
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

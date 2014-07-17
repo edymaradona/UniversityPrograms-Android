@@ -9,7 +9,7 @@ import ua.edu.universityprograms.app.R;
 /**
  * Created by vcaciuc on 6/3/2014.
  */
-public class WhatWeDo extends Activity {
+public class WhatWeDo extends Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,5 @@ public class WhatWeDo extends Activity {
     // Sets the Title for this page
     public void ActionBarRefresher(){
         getActionBar().setTitle(R.string.title_whatwedo);
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

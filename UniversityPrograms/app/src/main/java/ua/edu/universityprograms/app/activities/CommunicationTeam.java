@@ -20,7 +20,7 @@ import ua.edu.universityprograms.app.models.Members;
 /**
  * Created by vcaciuc on 6/5/2014.
  */
-public class CommunicationTeam extends Activity implements AdapterView.OnItemClickListener{
+public class CommunicationTeam extends Base implements AdapterView.OnItemClickListener {
 
     @InjectView(R.id.gvAssist)
     GridView assistants;
@@ -45,7 +45,8 @@ public class CommunicationTeam extends Activity implements AdapterView.OnItemCli
 
     // Gets communication team picture from the website and set their info from the "strings" file
     ArrayList<Members> list;
-    public ArrayList<Members> getAssistants(){
+
+    public ArrayList<Members> getAssistants() {
         list = new ArrayList<Members>();
         Resources res = getResources();
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_16.jpg", res.getString(R.string.communication1_name), res.getString(R.string.communication1_info), res.getString(R.string.communication1_about)));
@@ -57,15 +58,10 @@ public class CommunicationTeam extends Activity implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(CommunicationTeam.this, Member.class);
-        intent.putExtra("memb",list.get(i));
-        intent.putExtra("title","Communication Team");
+        intent.putExtra("memb", list.get(i));
+        intent.putExtra("title", "Communication Team");
         startActivity(intent);
     }
 
     // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
-    }
 }

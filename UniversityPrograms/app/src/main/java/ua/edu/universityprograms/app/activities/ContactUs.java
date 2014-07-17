@@ -17,7 +17,7 @@ import ua.edu.universityprograms.app.R;
 /**
  * Created by vcaciuc on 6/4/2014.
  */
-public class ContactUs extends Activity {
+public class ContactUs extends Base {
 
     @InjectView(R.id.bCall)
     ImageButton call;
@@ -47,12 +47,5 @@ public class ContactUs extends Activity {
                 startActivity(callIntent);
             }
         });
-    }
-
-    // Animations for exiting the page
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }

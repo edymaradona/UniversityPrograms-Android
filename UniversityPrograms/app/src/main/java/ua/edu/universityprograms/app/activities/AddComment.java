@@ -21,7 +21,7 @@ import ua.edu.universityprograms.app.models.DtoAddComment;
 import ua.edu.universityprograms.app.models.DtoEventBase;
 import ua.edu.universityprograms.app.models.User;
 
-public class AddComment extends Activity {
+public class AddComment extends Base {
 
     @InjectView(R.id.etTitle)
     EditText etTitlel;
@@ -58,21 +58,15 @@ public class AddComment extends Activity {
                         super.onPostExecute(aBoolean);
                         if(aBoolean){
                             Toast.makeText(AddComment.this, "Comment Successful", Toast.LENGTH_SHORT).show();
+                            finish();
                         }else{
-                            Toast.makeText(AddComment.this, aBoolean+": ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddComment.this, "Please insert a comment", Toast.LENGTH_SHORT).show();
                         }
-                        finish();
+
                     }
                 };
                 add_comment.execute(new DtoAddComment(u.uCwid, etComment.getText().toString(), etTitlel.getText().toString(), u.uEmail ));
             }
         });
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        // Animations for exiting the page
-        overridePendingTransition( R.anim.abc_fade_in, R.anim.translucent_exit);
     }
 }
