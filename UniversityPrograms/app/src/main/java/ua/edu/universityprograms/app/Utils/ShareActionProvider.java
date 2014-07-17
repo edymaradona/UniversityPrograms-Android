@@ -75,7 +75,6 @@ public class ShareActionProvider extends ActionProvider {
      * Listener for the event of selecting a share target.
      */
     public interface OnShareTargetSelectedListener {
-
         /**
          * Called when a share target has been selected. The client can
          * decide whether to perform some action before the sharing is

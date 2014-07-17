@@ -44,14 +44,12 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
     EditText etCwid;
     @InjectView(R.id.swTheme)
     Switch theme;
-
     Validator validator;
     SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.inject(this);
@@ -65,7 +63,6 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
                 editor.commit();
                 Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onValidationFailed(View failedView, Rule<?> failedRule) {
                 String message = failedRule.getFailureMessage();
@@ -79,7 +76,6 @@ public class Settings extends Activity implements RestartAppDialog.restartAppDia
             }
         });
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         String user = preferences.getString(UpConstants.USER_KEY, "");
         User you = new Gson().fromJson(user, User.class);
         try {

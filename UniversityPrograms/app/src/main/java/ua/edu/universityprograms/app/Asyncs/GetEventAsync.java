@@ -28,7 +28,6 @@ public class GetEventAsync extends AsyncTask<String, Void, DtoEvent> {
     String TAG = "Upcoming events";
     String uRLString = "";
 
-
     public GetEventAsync(Context cxt,int eventId, String cwid) {
         uRLString = cxt.getString(R.string.base_API) + cxt.getString(R.string.get_event) + eventId + "&" + cxt.getString(R.string.token_cwid) + cwid;
     }

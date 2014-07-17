@@ -23,7 +23,6 @@ import ua.edu.universityprograms.app.models.Members;
 public class Directors extends Activity implements AdapterView.OnItemClickListener{
 
     @InjectView(R.id.gvAssist)
-
     GridView assistants;
 
     @Override
@@ -51,7 +50,6 @@ public class Directors extends Activity implements AdapterView.OnItemClickListen
         Resources res = getResources();
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_2.jpg", res.getString(R.string.dir_name), res.getString(R.string.dir_info), res.getString(R.string.dir_about)));
         list.add(new Members("http://www.up.ua.edu/images/UPWebsite-StaffNew_7.jpg", res.getString(R.string.prog_assist_name), res.getString(R.string.prog_assist_info), res.getString(R.string.prog_assist_about)));
-
         return list;
     }
 

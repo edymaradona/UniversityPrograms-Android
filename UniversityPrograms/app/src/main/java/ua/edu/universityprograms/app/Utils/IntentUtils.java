@@ -46,7 +46,6 @@ public class IntentUtils {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "up");
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "text");
-
         PackageManager pm = v.getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
         for (final ResolveInfo app : activityList)
@@ -69,7 +68,6 @@ public class IntentUtils {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "String");
         shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Sting1");
-
         PackageManager pm = v.getPackageManager();
         List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
         for (final ResolveInfo app : activityList)

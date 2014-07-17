@@ -27,7 +27,6 @@ public class EventProgrammer  extends Activity implements AdapterView.OnItemClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", android.R.style.Theme_Holo));
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grad_assist);
         ButterKnife.inject(this);

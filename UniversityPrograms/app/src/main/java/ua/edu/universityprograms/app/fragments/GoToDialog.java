@@ -31,12 +31,10 @@ public class GoToDialog extends DialogFragment {
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
+         // User cancelled the dialog
             }
         });
         AlertDialog dialog = builder.create();
         return dialog;
     }
-
-
 }

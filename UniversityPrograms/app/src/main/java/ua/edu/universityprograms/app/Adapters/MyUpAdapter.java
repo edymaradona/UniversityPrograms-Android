@@ -66,14 +66,12 @@ public class MyUpAdapter extends ArrayAdapter<DtoEventBase> {
     }
 
     static class ViewHolder {
-
         @InjectView(R.id.tvEventName)
         TextView name;
         @InjectView(R.id.tvDate)
         TextView date;
         @InjectView(R.id.ivEventPicture)
         ImageView pic;
-
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
         }

@@ -17,7 +17,6 @@ public class Members implements Parcelable {
         this.about = about;
     }
 
-
     @Override
     public int describeContents() {
         return 0;

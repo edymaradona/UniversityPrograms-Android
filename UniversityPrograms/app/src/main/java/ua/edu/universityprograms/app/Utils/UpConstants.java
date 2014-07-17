@@ -6,5 +6,4 @@ package ua.edu.universityprograms.app.Utils;
 public class UpConstants {
 
     public static final String USER_KEY = "this is the super awesome user key.";
-
 }
